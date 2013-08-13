@@ -36,24 +36,16 @@
          (postfix (subseq str (- (length str) 2))))
     (format nil "~a~a" number postfix)))
 
-;; ---------------------------------------------------------------- [ Notes ]
-(defclass note ()
-  ((text :initarg :text)
-   (x :initarg :x)
-   (y :initarg :y)))
-
-(defparameter *notes* '())
-
 ;; ----------------------------------------------------------------- [ AJAX ]
 (defparameter *ajax-processor* 
   (make-instance 'ajax-processor :server-uri "/ajax")) 
 
-(defun-ajax post-note (text x y) (*ajax-processor*)
-  (push (make-instance 'note :text text :x x :y y) *notes*)
-  "ok")
+;; (defun-ajax post-note (text x y) (*ajax-processor*)
+;;   (push (make-instance 'note :text text :x x :y y) *notes*)
+;;   "ok")
 
-(defun-ajax get-notes () (*ajax-processor*)
-  (encode-json-to-string *notes*))
+;; (defun-ajax get-notes () (*ajax-processor*)
+;;   (encode-json-to-string *notes*))
 
 ;; ------------------------------------------------------ [ Server settings ]
 (setq
@@ -182,13 +174,7 @@
     (:div
      :id "body"
      :style (format nil "background-color: ~a;" +matchmaking-color+)
-     (:i "( matchmaking service in the future )")
-     (:p
-      (:canvas
-       :id "matchmaking-canvas"
-       :width 540
-       :height 540
-       :style "border:1px solid black; cursor: none;")))))
+     (:i "( matchmaking service in the future )"))))
 
 (defun html-render-entry-title (entry)
   (with-html
