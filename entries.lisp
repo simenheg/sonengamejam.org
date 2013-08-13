@@ -26,6 +26,7 @@
    (ecase format
      (:bitbucket "bitbucket.png")
      (:github "github.png")
+     (:jar "jar.png")
      (:zip "zip.png"))))
 
 ;; -------------------------------------------------------------- [ Entries ]
@@ -56,6 +57,14 @@
              :key #'entry-team-name     ; only one entry per team
              :test #'string=)))
 
+(defun rank-icon (rank)
+  (concatenate
+   'string "icons/"
+   (ecase rank
+     (1 "gold-medal.png")
+     (2 "silver-medal.png")
+     (3 "bronze-medal.png"))))
+
 ;; ------------------------------------------------------- [ Define entries ]
 
 (defentry "May 2013"
@@ -74,6 +83,7 @@
                   "Robin Aasen")
   :framework 'gamemaker
   :downloads '(:zip "http://sonen.ifi.uio.no/w/images/7/7f/fat_pixie_studios-bob-in-chains-0.1.zip")
+  :rank 2
   :screenshot "bob-in-chains.png")
 
 (defentry "May 2013"
@@ -89,10 +99,12 @@
   :game-title "Fishly"
   :team-members '("Lorenz Kellerer")
   :framework 'unity
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/cb/code_keep_it_lol.zip"))
+  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/cb/code_keep_it_lol.zip")
+  :rank 3)
 
 (defentry "May 2013"
   :team-name "Níðhǫggr"
+  :game-title "Bob's Silly Adventure to France II"
   :team-members '("Aleksi Miikkael Luukkonen"
                   "Aron Jansson Nordberg"
                   "Bjørn-Ingar Bergum"
@@ -100,14 +112,17 @@
                   "Lars Bjørlykke Kristiansen"
                   "Stine Skillebek")
   :framework 'cocos2d
-  :downloads '(:github "https://github.com/LarsBK/sonengamejam/"))
+  :downloads '(:zip "https://github.com/LarsBK/sonengamejam/archive/master.zip"
+               :github "https://github.com/LarsBK/sonengamejam/")
+  :screenshot "bobs-silly-adventure-to-france-ii.png")
 
 (defentry "May 2013"
   :team-name "No Name, No Game"
   :game-title "The aMAZEing Escape"
   :team-members '("Daniel Rødskog" "Erlend Kristiansen")
   :framework 'processing
-  :downloads '(:bitbucket "https://bitbucket.org/HrKristiansen/gamejam2013")
+  :downloads '(:jar "https://bitbucket.org/HrKristiansen/gamejam2013/downloads/game.jar"
+               :bitbucket "https://bitbucket.org/HrKristiansen/gamejam2013")
   :screenshot "the-amazeing-escape.png")
 
 (defentry "May 2013"
@@ -125,6 +140,7 @@
   :framework 'love
   :downloads '(:zip "http://sonen.ifi.uio.no/w/images/2/2f/team-beam-dark-escape.zip"
                :bitbucket "https://bitbucket.org/beamteam/gamejamgame")
+  :rank 1
   :screenshot "dark-escape.png")
 
 (defentry "May 2013"

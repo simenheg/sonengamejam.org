@@ -96,6 +96,33 @@ table
     padding-bottom: 8em;
 }
 
+.download-link
+{
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    text-align: center;
+    background: #f48a88;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: #f48a88;
+    border-radius: 0.6em;
+}
+
+
+.download-link:hover
+{
+    background: #ef716e;
+    border-color: #ef716e;
+}
+
+
+.download-link img
+{
+    width: 100%;
+    min-height: 100%;
+}
+
 h2
 {
     border-bottom-style: solid;
@@ -118,4 +145,10 @@ h2
 {
     width: 100%;
     min-height: 100%;
+}
+
+img.medal
+{
+    margin-left: 0.5em;
+    height: 1.5em;
 }
