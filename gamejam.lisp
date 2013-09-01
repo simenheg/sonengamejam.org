@@ -100,9 +100,10 @@
   (with-html
     (:table
      (loop for (day . schedule) in timetable do
-       (htm (:tr (:td (:strong (princ day)))))
+       (htm (:th :colspan "2" (:strong (princ day))))
        (loop for (time event) in schedule do
-         (htm (:tr (:td (princ time)) (:td (princ event)))))))))
+         (htm (:tr (:td :class "timestamp" (princ time))
+                   (:td (princ event)))))))))
 
 ;; ------------------------------------------------------ [ HTML generation ]
 (defparameter +index-color+ "#a7e1ed")
@@ -156,7 +157,7 @@
       (:li "Game must conform with the given theme.")
       (:li "All programming languages allowed.")
       (:li "All publicly available frameworks, libraries & assets allowed.")
-      (:li "Source code must be included in the final delivery."))
+      (:li "Source code and a screen shot must be included in the final delivery."))
      (:h3 "Timetable")
      (fmt (html-render-timetable *timetable*))
      (:h3 "Matchmaking")

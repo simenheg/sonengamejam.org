@@ -6,7 +6,38 @@ body
 
 table
 {
-    font-size: 0.75em;
+    width: 100%;
+    font-size: 0.9em;
+    border-collapse: collapse;
+}
+
+th
+{
+    padding: 0.8em;
+    background-color: #097991;
+    color: white;
+}
+
+tr:nth-child(even)
+{
+    background-color: #90d6e5;
+}
+
+tr:nth-child(odd)
+{
+    background-color: #69cbe0;
+}
+
+td
+{
+    padding: 0.6em;
+}
+
+td.timestamp
+{
+    border-right: 1px solid #097991;
+    text-align: right;
+    font-weight: bold;
 }
 
 #frame
@@ -72,7 +103,7 @@ table
 
 .menu-item:hover
 {
-    /* font-weight: bold; */
+/* font-weight: bold; */
 }
 
 .menu-item a
