@@ -76,6 +76,34 @@
        (*standard-output* nil :indent nil)
      ,@body))
 
+;; ------------------------------------------------------------ [ Timetable ]
+(defparameter *timetable*
+  '(("Friday 27th"
+     ("15:30" "Registrations open")
+     ("16:00" "Crashcourse in LÖVE (Lua)")
+     ("16:30" "Crashcourse in Processing (Java)")
+     ("17:00" "Theme announcement & starting shot")
+     ("17:15" "Crashcourse in game physics MOVED FROM SATURDAY")
+     ("24:00" "Time to go home "))
+    ("Saturday 28th"
+     ("10:00" "Doors open")
+     ("18:00" "Crashcourse in pixelart")
+     ("19:00" "Crashcourse in game music")
+     ("24:00" "Time to go home "))
+    ("Sunday 29th"
+     ("10:00" "Doors open")
+     ("17:00" "Submission deadline")
+     ("17:15" "Showoff on the big screen")
+     ("Afterwards" "Prizes & pizza "))))
+
+(defun html-render-timetable (timetable)
+  (with-html
+    (:table
+     (loop for (day . schedule) in timetable do
+       (htm (:tr (:td (:strong (princ day)))))
+       (loop for (time event) in schedule do
+         (htm (:tr (:td (princ time)) (:td (princ event)))))))))
+
 ;; ------------------------------------------------------ [ HTML generation ]
 (defparameter +index-color+ "#a7e1ed")
 (defparameter +matchmaking-color+ "#daef80")
@@ -130,28 +158,7 @@
       (:li "All publicly available frameworks, libraries & assets allowed.")
       (:li "Source code must be included in the final delivery."))
      (:h3 "Timetable")
-     (:table
-      (:tr (:td :colspan "2" (:strong "Friday 27th")))
-      (:tr (:td "15:30") (:td "Registrations open"))
-      (:tr (:td "16:00") (:td "Crashcourse in LÖVE (Lua)"))
-      (:tr (:td "16:30") (:td "Crashcourse in Processing (Java)"))
-      (:tr (:td "17:00") (:td "Theme announcement & starting shot"))
-      (:tr (:td "17:15") (:td "Crashcourse in game physics MOVED FROM
-                               SATURDAY"))
-      (:tr (:td "24:00") (:td "Time to go home "))
-
-      (:tr (:td :colspan "2" (:strong "Saturday 28th")))
-      (:tr (:td "10:00") (:td "Doors open"))
-      (:tr (:td "18:00") (:td "Crashcourse in pixelart"))
-      (:tr (:td "19:00") (:td "Crashcourse in game music"))
-      (:tr (:td "24:00") (:td "Time to go home "))
-
-      (:tr (:td :colspan "2" (:strong "Sunday 29th")))
-      (:tr (:td "10:00") (:td "Doors open"))
-      (:tr (:td "17:00") (:td "Submission deadline"))
-      (:tr (:td "17:15") (:td "Showoff on the big screen"))
-      (:tr (:td "Afterwards") (:td "Prizes & pizza "))
-      )
+     (fmt (html-render-timetable *timetable*))
      (:h3 "Matchmaking")
      (:p
       "Still missing that special someone on your team that can make you
