@@ -2,6 +2,13 @@
 ;; eval: (put 'defentry 'lisp-indent-function 1)
 ;; End:
 
+;; ------------------------------------------------------------ [ Game jams ]
+(defstruct gamejam id date theme)
+
+(defparameter *gamejams*
+  (list
+   (make-gamejam :id 'may-13 :date "May 2013" :theme "Escape")))
+
 ;; ----------------------------------------------------------- [ Frameworks ]
 
 (defstruct (framework (:constructor make-framework (name written url)))
@@ -40,9 +47,9 @@
   (rank nil)
   (screenshot nil))
 
-(defparameter *entries* (make-hash-table :test #'equal))
+(defparameter *entries* (make-hash-table))
 
-(defun defentry (year &rest args)
+(defun defentry (gamejam-id &rest args)
   (let ((new-entry (apply #'make-entry args)))
     (setf (entry-team-members new-entry) ; keep team member list sorted
           (sort (entry-team-members new-entry) #'string<))
@@ -53,9 +60,8 @@
         (setf (entry-framework new-entry)
               (or framework (make-framework nil "n/a" "#")))))
     
-    (pushnew new-entry (gethash year *entries*)
-             :key #'entry-team-name     ; only one entry per team
-             :test #'string=)))
+    (pushnew new-entry (gethash gamejam-id *entries*)
+             :key #'entry-team-name))) ; only one entry per team
 
 (defun rank-icon (rank)
   (concatenate
@@ -67,7 +73,7 @@
 
 ;; ------------------------------------------------------- [ Define entries ]
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "CYBRILL"
   :game-title "The Flood"
   :team-members '("Thor Merlin Lervik")
@@ -75,7 +81,7 @@
   :downloads '(:zip "http://sonen.ifi.uio.no/w/images/b/b2/game-jam-2013-escape.zip")
   :screenshot "the-flood-2.png")
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "Fat Pixie"
   :game-title "Bob in Chains"
   :team-members '("Kevin Engelsjord"
@@ -86,7 +92,7 @@
   :rank 2
   :screenshot "bob-in-chains.png")
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "Game Jam organizers"
   :game-title "Pig Run"
   :team-members '("Simen Heggestøyl")
@@ -94,7 +100,7 @@
   :downloads '(:zip "http://folk.uio.no/simenheg/pig-run.love")
   :screenshot "pig-run.png")
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "keep it lol"
   :game-title "Fishly"
   :team-members '("Lorenz Kellerer")
@@ -102,7 +108,7 @@
   :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/cb/code_keep_it_lol.zip")
   :rank 3)
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "Níðhǫggr"
   :game-title "Bob's Silly Adventure to France II"
   :team-members '("Aleksi Miikkael Luukkonen"
@@ -116,7 +122,7 @@
                :github "https://github.com/LarsBK/sonengamejam/")
   :screenshot "bobs-silly-adventure-to-france-ii.png")
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "No Name, No Game"
   :game-title "The aMAZEing Escape"
   :team-members '("Daniel Rødskog" "Erlend Kristiansen")
@@ -125,14 +131,14 @@
                :bitbucket "https://bitbucket.org/HrKristiansen/gamejam2013")
   :screenshot "the-amazeing-escape.png")
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "Rancid Applications"
   :game-title "Rancid"
   :team-members '("Martin Stensgård")
   :framework 'amos
   :downloads '(:zip "http://sonen.ifi.uio.no/w/images/0/0a/Rancid.zip"))
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "Team Beam"
   :game-title "Dark Escape"
   :team-members '("Julian Hisdal Nymark"
@@ -143,7 +149,7 @@
   :rank 1
   :screenshot "dark-escape.png")
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "Team Duckhunt"
   :game-title "The Escape"
   :team-members '("Andreas Orvik" "Ivar Tryti" "Stian Valle")
@@ -151,7 +157,7 @@
   :downloads '(:zip "http://sonen.ifi.uio.no/w/images/0/03/TheEscape.zip")
   :screenshot "the-escape.png")
 
-(defentry "May 2013"
+(defentry 'may-13
   :team-name "Team Kyrre"
   :team-members '("Asbjørn Lysne Voje"
                   "Halvard Eggen"
