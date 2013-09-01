@@ -62,6 +62,7 @@
    "/screenshots/" (first (directory "screenshots/")))
   (create-prefix-dispatcher "/matchmaking" 'matchmaking)
   (create-prefix-dispatcher "/entries" 'entries)
+  (create-prefix-dispatcher "/prizes" 'prizes)
   (create-prefix-dispatcher nil 'index)))
 
 ;; ---------------------------------------------------------- [ HTML macros ]
@@ -79,6 +80,7 @@
 (defparameter +index-color+ "#a7e1ed")
 (defparameter +matchmaking-color+ "#daef80")
 (defparameter +entries-color+ "#f49896")
+(defparameter +prizes-color+ "#f4f896")
 
 (defun html-render-header ()
   (with-html
@@ -102,8 +104,9 @@
     (:div
      :id "menu"
      (fmt (html-render-menu-item "Info" "index"))
-     (fmt (html-render-menu-item "Matchmaking" "matchmaking"))
-     (fmt (html-render-menu-item "Entries" "entries")))))
+     (fmt (html-render-menu-item "Matching" "matchmaking"))
+     (fmt (html-render-menu-item "Entries" "entries"))
+     (fmt (html-render-menu-item "Prizes" "prizes")))))
 
 (defun html-render-body-index ()
   (with-html
@@ -245,6 +248,13 @@
      :style (format nil "background-color: ~a;" +entries-color+)
      (fmt (html-render-entries "May 2013")))))
 
+(defun html-render-body-prizes ()
+  (with-html
+    (:div
+     :id "body"
+     :style (format nil "background-color: ~a;" +prizes-color+)
+     (:i "( prize list in the future )"))))
+
 (defun html-render-footer ()
   (with-html
     (:div
@@ -271,7 +281,6 @@
            (:title "Game Jam 2013"))
 
     (:body
-     :onload "initCanvas()"
      (:div
       :id "frame"
       (fmt (html-render-header))
@@ -279,7 +288,8 @@
       (fmt (ecase site
              (index (html-render-body-index))
              (matchmaking (html-render-body-matchmaking))
-             (entries (html-render-body-entries))))
+             (entries (html-render-body-entries))
+             (prizes (html-render-body-prizes))))
       (fmt (html-render-footer))))))
 
 (define-easy-handler (index) ()
@@ -293,6 +303,10 @@
 (define-easy-handler (entries) ()
   (no-cache)
   (html-render-site 'entries))
+
+(define-easy-handler (prizes) ()
+  (no-cache)
+  (html-render-site 'prizes))
 
 ;; ----------------------------------------------------------------- [ Run! ]
 

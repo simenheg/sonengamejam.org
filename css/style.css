@@ -34,9 +34,9 @@ table
     line-height: 3em;
     display: inline-block;
     height: 100%;
-    width: 80%;
-    padding-right: 1em;
-    padding-left: 1em;
+    width: 70%;
+    padding-right: 0.7em;
+    padding-left: 0.7em;
     cursor: pointer;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
@@ -46,8 +46,8 @@ table
 {
     display: inline-block;
     width: 9em;
-    margin-right: 1.2em;
-    margin-left: 1.2em;
+    margin-right: 0em;
+    margin-left: 0em;
 }
 
 #menu-item-index
@@ -63,6 +63,11 @@ table
 #menu-item-entries
 {
     background-color: #f49896;
+}
+
+#menu-item-prizes
+{
+    background-color: #f4f896;
 }
 
 .menu-item:hover
