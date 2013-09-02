@@ -28,8 +28,10 @@
     (format nil "~a~a" number postfix)))
 
 (defun symcat (&rest syms)
-  (intern (with-output-to-string (s)
-            (dolist (a syms) (princ a s)))))
+  (intern
+   (with-output-to-string (s)
+     (dolist (a syms) (princ a s)))
+   :gamejam))
 
 ;; ----------------------------------------------------------------- [ AJAX ]
 (defparameter *ajax-processor*
