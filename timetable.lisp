@@ -1,14 +1,14 @@
 (("Friday 27th"
-  ("15:30" "Registrations open")
-  ("16:00" "Crashcourse in LÖVE (Lua)")
-  ("16:30" "Crashcourse in Processing (Java)")
+  ("15:00" "Registrations open & matchmaking")
+  ("15:30" "Talk: Crashcourse in LÖVE (Lua)")
+  ("16:30" "Talk: Crashcourse in Processing (Java)")
   ("17:00" "Theme announcement & starting shot")
-  ("17:15" "Crashcourse in game physics MOVED FROM SATURDAY")
+  ("17:15" "Talk: Crashcourse in game physics")
   ("24:00" "Time to go home "))
  ("Saturday 28th"
   ("10:00" "Doors open")
-  ("18:00" "Crashcourse in pixelart")
-  ("19:00" "Crashcourse in game music")
+  ("18:00" "Talk: Crashcourse in pixelart")
+  ("21:00" "Talk: Anatomy of an arcade machine")
   ("24:00" "Time to go home "))
  ("Sunday 29th"
   ("10:00" "Doors open")

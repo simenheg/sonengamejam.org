@@ -89,6 +89,7 @@ td.timestamp
 {
     border-right: 1px solid #097991;
     text-align: right;
+    width: 6em;
     font-weight: bold;
 }
 
