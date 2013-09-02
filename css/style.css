@@ -9,6 +9,13 @@ header
     padding: 0.8em;
 }
 
+footer
+{
+    padding: 1em;
+    font-size: 0.7em;
+    color: silver;
+}
+
 table
 {
     width: 100%;
@@ -18,24 +25,64 @@ table
 
 th
 {
-    padding: 0.8em;
-    background-color: #097991;
+    padding: 0.7em;
     color: white;
 }
 
-tr:nth-child(even)
+#timetable th
+{
+    
+    background-color: #097991;
+}
+
+#timetable tr:nth-child(even)
 {
     background-color: #90d6e5;
 }
 
-tr:nth-child(odd)
+#timetable tr:nth-child(odd)
 {
     background-color: #69cbe0;
 }
 
+#prizes tr:nth-child(even)
+{
+    background-color: #ebef87;
+}
+
+#prizes tr:nth-child(odd)
+{
+    background-color: #dfe374;
+}
+
+#prizes th
+{
+    background-color: #afb33a;
+}
+
 td
 {
-    padding: 0.6em;
+    height: 1.5em;
+    overflow: hidden;
+    padding: 0.7em;
+}
+
+td a
+{
+    display: inline-block;
+    height:100%;
+    width:100%;
+    margin: -10em;
+    padding: 10em;
+    color: black;
+    text-decoration: none;
+}
+
+td a:hover
+{
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #edf340;
 }
 
 td.timestamp
@@ -100,11 +147,6 @@ td.timestamp
     background-color: #f4f896;
 }
 
-.menu-item:hover
-{
-/* font-weight: bold; */
-}
-
 .menu-item a
 {
     color: black;
@@ -117,13 +159,6 @@ td.timestamp
     border-radius: 1em;
     padding: 2em;
     min-height: 18em;
-}
-
-#footer
-{
-    padding: 1em;
-    font-size: 0.7em;
-    color: silver;
 }
 
 .entry

@@ -33,6 +33,10 @@
      (dolist (a syms) (princ a s)))
    :gamejam))
 
+(defun lisp-value-from-file (filename)
+  (with-open-file (stream filename)
+    (read stream)))
+
 ;; ----------------------------------------------------------------- [ AJAX ]
 (defparameter *ajax-processor*
   (make-instance 'ajax-processor :server-uri "/ajax"))
@@ -95,28 +99,12 @@
           *dispatch-table*)))
 
 ;; ------------------------------------------------------------ [ Timetable ]
-(defparameter *timetable*
-  '(("Friday 27th"
-     ("15:30" "Registrations open")
-     ("16:00" "Crashcourse in LÖVE (Lua)")
-     ("16:30" "Crashcourse in Processing (Java)")
-     ("17:00" "Theme announcement & starting shot")
-     ("17:15" "Crashcourse in game physics MOVED FROM SATURDAY")
-     ("24:00" "Time to go home "))
-    ("Saturday 28th"
-     ("10:00" "Doors open")
-     ("18:00" "Crashcourse in pixelart")
-     ("19:00" "Crashcourse in game music")
-     ("24:00" "Time to go home "))
-    ("Sunday 29th"
-     ("10:00" "Doors open")
-     ("17:00" "Submission deadline")
-     ("17:15" "Showoff on the big screen")
-     ("Afterwards" "Prizes & pizza "))))
+(defparameter *timetable* (lisp-value-from-file "timetable.lisp"))
 
 (defun html-render-timetable (timetable)
   (with-html
     (:table
+     :id "timetable"
      (loop for (day . schedule) in timetable do
        (htm (:th :colspan "2" (:strong (princ day))))
        (loop for (time event) in schedule do
@@ -261,14 +249,22 @@
   (with-html
     (fmt (html-render-entries 'may-13))))
 
+;; --------------------------------------------------------------- [ Prizes ]
+(defparameter *prizes* (lisp-value-from-file "prizes.lisp"))
+
 (defun html-render-body-prizes ()
   (with-html
-    (:i "( prize list in the future )")))
+    (:table
+     :id "prizes"
+     (loop for (category . prizes) in *prizes* do
+       (htm (:th (:strong (princ category))))
+       (loop for (prize url) in prizes do
+         (htm
+          (:tr (:td (:a :href url (princ prize))))))))))
 
 (defun html-render-footer ()
   (with-html
-    (:div
-     :id "footer"
+    (:footer
      (fmt "Contact: ~a"
           (with-html (:a :href "mailto:simenheg@ifi.uio.no"
                          "Simen Heggestøyl"))))))
