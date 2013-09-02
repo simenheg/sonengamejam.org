@@ -10,7 +10,6 @@
    (make-gamejam :id 'may-13 :date "May 2013" :theme "Escape")))
 
 ;; ----------------------------------------------------------- [ Frameworks ]
-
 (defstruct (framework (:constructor make-framework (name written url)))
   name written url)
 
@@ -26,7 +25,6 @@
      (melonjs "melonJS" "http://melonjs.org/"))))
 
 ;; ----------------------------------------------------- [ Download formats ]
-
 (defun format-image (format)
   (concatenate
    'string "icons/"
@@ -37,7 +35,6 @@
      (:zip "zip.png"))))
 
 ;; -------------------------------------------------------------- [ Entries ]
-
 (defstruct entry
   (team-name "anonymous" :type string)
   (game-title "n/a" :type string)
@@ -53,13 +50,13 @@
   (let ((new-entry (apply #'make-entry args)))
     (setf (entry-team-members new-entry) ; keep team member list sorted
           (sort (entry-team-members new-entry) #'string<))
-    
+
     (when-let ((framework-name (entry-framework new-entry)))
       (let ((framework (find framework-name *known-frameworks*
                              :key #'framework-name)))
         (setf (entry-framework new-entry)
               (or framework (make-framework nil "n/a" "#")))))
-    
+
     (pushnew new-entry (gethash gamejam-id *entries*)
              :key #'entry-team-name))) ; only one entry per team
 
@@ -72,7 +69,6 @@
      (3 "bronze-medal.png"))))
 
 ;; ------------------------------------------------------- [ Define entries ]
-
 (defentry 'may-13
   :team-name "CYBRILL"
   :game-title "The Flood"

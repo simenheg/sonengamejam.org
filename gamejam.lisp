@@ -32,8 +32,8 @@
             (dolist (a syms) (princ a s)))))
 
 ;; ----------------------------------------------------------------- [ AJAX ]
-(defparameter *ajax-processor* 
-  (make-instance 'ajax-processor :server-uri "/ajax")) 
+(defparameter *ajax-processor*
+  (make-instance 'ajax-processor :server-uri "/ajax"))
 
 ;; ---------------------------------------------------------- [ HTML macros ]
 (defmacro with-html-page (&body body)
