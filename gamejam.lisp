@@ -81,6 +81,8 @@
   (create-folder-dispatcher-and-handler
    "/icons/" (first (directory "icons/")))
   (create-folder-dispatcher-and-handler
+   "/images/" (first (directory "images/")))
+  (create-folder-dispatcher-and-handler
    "/screenshots/" (first (directory "screenshots/")))
   (create-prefix-dispatcher nil 'index)))
 
@@ -122,9 +124,8 @@
 ;; ------------------------------------------------------ [ HTML generation ]
 (defun html-render-header ()
   (with-html
-    (:div
-     :id "header"
-     "( maybe header. or maybe not )")))
+    (:header
+     (:img :src "images/header.png"))))
 
 (defun html-render-menu-item (name ref)
   (with-html

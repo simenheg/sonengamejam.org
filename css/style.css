@@ -4,6 +4,11 @@ body
     text-align: center;
 }
 
+header
+{
+    padding: 0.8em;
+}
+
 table
 {
     width: 100%;
@@ -44,12 +49,6 @@ td.timestamp
 {
     width: 38em;
     margin: 0 auto;
-}
-
-#header
-{
-    padding: 1em;
-    color: silver;
 }
 
 #menu
