@@ -1,18 +1,9 @@
-;; Hunchentoot examples are found at:
-;;  ~/quicklisp/dists/quicklisp/software/hunchentoot-1.2.3/test
-;;
-;; Launch hunchentoot tests:
-;;  (hunchentoot:start (make-instance 'hunchentoot:easy-acceptor :port 8080))
-;;
-;; Hunchentoot test URI:
-;;  http://127.0.0.1:8080/hunchentoot/test
-
-(ql:quickload :hunchentoot)
-(ql:quickload :hunchentoot-test)
+(ql:quickload :alexandria)
+(ql:quickload :cl-json)
 (ql:quickload :cl-who)
 (ql:quickload :ht-simple-ajax)
-(ql:quickload :cl-json)
-(ql:quickload :alexandria)
+(ql:quickload :hunchentoot)
+(ql:quickload :hunchentoot-test)
 
 (defpackage :gamejam
   (:use :cl :hunchentoot :cl-who :ht-simple-ajax :json :alexandria)
@@ -36,16 +27,47 @@
          (postfix (subseq str (- (length str) 2))))
     (format nil "~a~a" number postfix)))
 
+(defun symcat (&rest syms)
+  (intern (with-output-to-string (s)
+            (dolist (a syms) (princ a s)))))
+
 ;; ----------------------------------------------------------------- [ AJAX ]
 (defparameter *ajax-processor* 
   (make-instance 'ajax-processor :server-uri "/ajax")) 
 
-;; (defun-ajax post-note (text x y) (*ajax-processor*)
-;;   (push (make-instance 'note :text text :x x :y y) *notes*)
-;;   "ok")
+;; ---------------------------------------------------------- [ HTML macros ]
+(defmacro with-html-page (&body body)
+  `(with-html-output-to-string
+       (*standard-output* nil :prologue t :indent nil)
+     ,@body))
 
-;; (defun-ajax get-notes () (*ajax-processor*)
-;;   (encode-json-to-string *notes*))
+(defmacro with-html (&body body)
+  `(with-html-output-to-string
+       (*standard-output* nil :indent nil)
+     ,@body))
+
+;; ------------------------------------------------------- [ Site structure ]
+(defstruct subsite id title color)
+
+(defmacro defsite (id title color)
+  `(progn
+     (define-easy-handler (,id) ()
+       (no-cache)
+       (html-render-site (find ',id *subsites* :key #'subsite-id)))
+     (make-subsite :id ',id :title ,title :color ,color)))
+
+(defparameter *subsites*
+  (list
+   (defsite index "Info" "#a7e1ed")
+   (defsite matchmaking "Matching" "#daef80")
+   (defsite entries "Entries" "#f49896")
+   (defsite prizes "Prizes" "#f4f896")))
+
+(defun subsite-url (subsite)
+  (string-downcase (subsite-id subsite)))
+
+(defun subsite-render-function (subsite)
+  (symcat 'html-render-body- (subsite-id subsite)))
 
 ;; ------------------------------------------------------ [ Server settings ]
 (setq
@@ -60,21 +82,13 @@
    "/icons/" (first (directory "icons/")))
   (create-folder-dispatcher-and-handler
    "/screenshots/" (first (directory "screenshots/")))
-  (create-prefix-dispatcher "/matchmaking" 'matchmaking)
-  (create-prefix-dispatcher "/entries" 'entries)
-  (create-prefix-dispatcher "/prizes" 'prizes)
   (create-prefix-dispatcher nil 'index)))
 
-;; ---------------------------------------------------------- [ HTML macros ]
-(defmacro with-html-page (&body body)
-  `(with-html-output-to-string
-       (*standard-output* nil :prologue t :indent nil)
-     ,@body))
-
-(defmacro with-html (&body body)
-  `(with-html-output-to-string
-       (*standard-output* nil :indent nil)
-     ,@body))
+(dolist (site *subsites*)
+  (let ((id (subsite-id site)))
+    (push (create-prefix-dispatcher
+           (string-downcase (format nil "/~a" id)) id)
+          *dispatch-table*)))
 
 ;; ------------------------------------------------------------ [ Timetable ]
 (defparameter *timetable*
@@ -106,11 +120,6 @@
                    (:td (princ event)))))))))
 
 ;; ------------------------------------------------------ [ HTML generation ]
-(defparameter +index-color+ "#a7e1ed")
-(defparameter +matchmaking-color+ "#daef80")
-(defparameter +entries-color+ "#f49896")
-(defparameter +prizes-color+ "#f4f896")
-
 (defun html-render-header ()
   (with-html
     (:div
@@ -132,60 +141,55 @@
   (with-html
     (:div
      :id "menu"
-     (fmt (html-render-menu-item "Info" "index"))
-     (fmt (html-render-menu-item "Matching" "matchmaking"))
-     (fmt (html-render-menu-item "Entries" "entries"))
-     (fmt (html-render-menu-item "Prizes" "prizes")))))
+     (dolist (site *subsites*)
+       (fmt
+        (html-render-menu-item
+         (subsite-title site)
+         (subsite-url site)))))))
 
 (defun html-render-body-index ()
   (with-html
-    (:div
-     :id "body"
-     :style (format nil "background-color: ~a;" +index-color+)
-     (:p
-      "Make a game in 48 hours! The purpose of the Game Jam is to gather
+    (:p
+     "Make a game in 48 hours! The purpose of the Game Jam is to gather
        aspiring game developers, rookies and veterans alike. Everyone is
        eligible enter, and the entry is no fee. No prior registration is
        needed, all you have to do is to show up at Sonen, Ole-Johan Dahls
        hus, September 27th!")
-     (:h3 "Rules")
-     (:p (:i "Note, all rules are subject to change before September 27th!"))
-     (:ul
-      (:li "One game submission per team.")
-      (:li "There is no limit on the number of team members.")
-      (:li "Time limit: 48 hours.")
-      (:li "Game must conform with the given theme.")
-      (:li "All programming languages allowed.")
-      (:li "All publicly available frameworks, libraries & assets allowed.")
-      (:li "Source code and a screen shot must be included in the final delivery."))
-     (:h3 "Timetable")
-     (fmt (html-render-timetable *timetable*))
-     (:h3 "Matchmaking")
-     (:p
-      "Still missing that special someone on your team that can make you
+    (:h3 "Rules")
+    (:p (:i "Note, all rules are subject to change before September 27th!"))
+    (:ul
+     (:li "One game submission per team.")
+     (:li "There is no limit on the number of team members.")
+     (:li "Time limit: 48 hours.")
+     (:li "Game must conform with the given theme.")
+     (:li "All programming languages allowed.")
+     (:li "All publicly available frameworks, libraries & assets allowed.")
+     (:li "Source code and a screen shot must be included in the final delivery."))
+    (:h3 "Timetable")
+    (fmt (html-render-timetable *timetable*))
+    (:h3 "Matchmaking")
+    (:p
+     "Still missing that special someone on your team that can make you
        feel all warm and fuzzy inside (or at least turn your pixel-poop into
        something you might dare to call \"art\" when nobody is listening?)")
-     (:i "Matchmaking service to come!")
-     (:h3 "Not associated with UiO?")
-     (:p
-      "Guest accounts will be provided, allowing you to use the machines at
+    (:i "Matchmaking service to come!")
+    (:h3 "Not associated with UiO?")
+    (:p
+     "Guest accounts will be provided, allowing you to use the machines at
        Ifi during the event.")
-     (:p "When you need access to the building, please call one of us:")
-     (:ul
-      (:li "Simen (96 82 24 48)")
-      (:li "Ilyá (96 82 24 48)"))
-     (:h3 "Pizza, coffee & other foods")
-     (:p
-      "Free pizza will be served Sunday afternoon. Please inform us
+    (:p "When you need access to the building, please call one of us:")
+    (:ul
+     (:li "Simen (96 82 24 48)")
+     (:li "Ilyá (96 82 24 48)"))
+    (:h3 "Pizza, coffee & other foods")
+    (:p
+     "Free pizza will be served Sunday afternoon. Please inform us
        beforehand if you've got any specific dietary needs. ")
-     (:p "Free coffee will of course be available at all times."))))
+    (:p "Free coffee will of course be available at all times.")))
 
 (defun html-render-body-matchmaking ()
   (with-html
-    (:div
-     :id "body"
-     :style (format nil "background-color: ~a;" +matchmaking-color+)
-     (:i "( matchmaking service in the future )"))))
+    (:i "( matchmaking service in the future )")))
 
 (defun html-render-entry-title (entry)
   (with-html
@@ -252,17 +256,11 @@
 
 (defun html-render-body-entries ()
   (with-html
-    (:div
-     :id "body"
-     :style (format nil "background-color: ~a;" +entries-color+)
-     (fmt (html-render-entries 'may-13)))))
+    (fmt (html-render-entries 'may-13))))
 
 (defun html-render-body-prizes ()
   (with-html
-    (:div
-     :id "body"
-     :style (format nil "background-color: ~a;" +prizes-color+)
-     (:i "( prize list in the future )"))))
+    (:i "( prize list in the future )")))
 
 (defun html-render-footer ()
   (with-html
@@ -288,40 +286,25 @@
             :type "text/css"
             :href "style.css")
            (:title "Game Jam 2013"))
-
     (:body
      (:div
       :id "frame"
       (fmt (html-render-header))
       (fmt (html-render-menu))
-      (fmt (ecase site
-             (index (html-render-body-index))
-             (matchmaking (html-render-body-matchmaking))
-             (entries (html-render-body-entries))
-             (prizes (html-render-body-prizes))))
+      (:div
+       :id "body"
+       :style (format nil "background-color: ~a;" (subsite-color site))
+       (fmt (funcall (subsite-render-function site))))
       (fmt (html-render-footer))))))
 
-(define-easy-handler (index) ()
-  (no-cache)
-  (html-render-site 'index))
-
-(define-easy-handler (matchmaking) ()
-  (no-cache)
-  (html-render-site 'matchmaking))
-
-(define-easy-handler (entries) ()
-  (no-cache)
-  (html-render-site 'entries))
-
-(define-easy-handler (prizes) ()
-  (no-cache)
-  (html-render-site 'prizes))
-
 ;; ----------------------------------------------------------------- [ Run! ]
+(defun start-server (&key (port 9001))
+  (start
+   (make-instance
+    'easy-acceptor
+    :port port
+    :address "127.0.0.1")))
 
-(defun start-server (&key (port 8080))
-  (start (make-instance 'easy-acceptor :port port)))
-
-(handler-case (start-server :port 8080)
+(handler-case (start-server)
   (usocket:address-in-use-error ()
     (format t "No server started; address in use.~%")))
