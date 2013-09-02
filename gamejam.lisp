@@ -235,19 +235,19 @@
      (fmt (html-render-entry-framework entry))
      (fmt (html-render-entry-downloads entry)))))
 
-(defun html-render-entries (gamejam-id)
-  (let ((gamejam (find gamejam-id *gamejams* :key #'gamejam-id)))
-    (with-html
-      (:h1 (fmt "~a: ~a" (gamejam-date gamejam) (gamejam-theme gamejam)))
-      (let ((entries ; the entry list, sorted on game title
-             (sort (copy-list (gethash gamejam-id *entries*))
-                   #'string< :key #'entry-game-title)))
-        (dolist (entry entries)
-          (fmt (html-render-entry entry)))))))
+(defun html-render-entries (gamejam)
+  (with-html
+    (:h1 (fmt "~a: ~a" (gamejam-date gamejam) (gamejam-theme gamejam)))
+    (let ((entries ; the entry list, sorted on game title
+           (sort (copy-list (gethash (gamejam-id gamejam) *entries*))
+                 #'string< :key #'entry-game-title)))
+      (dolist (entry entries)
+        (fmt (html-render-entry entry))))))
 
 (defun html-render-body-entries ()
   (with-html
-    (fmt (html-render-entries 'may-13))))
+    (dolist (gamejam *gamejams*)
+      (fmt (html-render-entries gamejam)))))
 
 ;; --------------------------------------------------------------- [ Prizes ]
 (defparameter *prizes* (lisp-value-from-file "prizes.lisp"))
