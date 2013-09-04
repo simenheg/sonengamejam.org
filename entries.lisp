@@ -161,4 +161,5 @@
                   "Linda Bech"
                   "Tommy Vitikka")
   :framework 'melonjs
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/c9/Team_kyrre.zip"))
+  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/c9/Team_kyrre.zip")
+  :screenshot "team-kyrre.png")
