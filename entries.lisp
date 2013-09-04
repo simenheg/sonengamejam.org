@@ -132,7 +132,8 @@
   :game-title "Rancid"
   :team-members '("Martin Stensgård")
   :framework 'amos
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/0/0a/Rancid.zip"))
+  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/0/0a/Rancid.zip")
+  :screenshot "rancid.png")
 
 (defentry 'may-13
   :team-name "Team Beam"
