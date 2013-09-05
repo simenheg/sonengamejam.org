@@ -163,15 +163,17 @@
      "Still missing that special someone on your team that can make you
        feel all warm and fuzzy inside (or at least turn your pixel-poop into
        something you might dare to call \"art\" when nobody is listening?)")
-    (:i "Matchmaking service to come!")
+    (:p
+     "Show up at 15:00 on Friday the 27th, or register in our "
+     (:a :href "matchmaking" "matchmaking service")
+     ".")
     (:h3 "Not associated with UiO?")
     (:p
      "Guest accounts will be provided, allowing you to use the machines at
        Ifi during the event.")
-    (:p "When you need access to the building, please call one of us:")
+    (:p "When you need access to the building, please call:")
     (:ul
-     (:li "Simen (96 82 24 48)")
-     (:li "Ilyá (96 82 24 48)"))
+     (:li "Simen (96 82 24 48)"))
     (:h3 "Pizza, coffee & other foods")
     (:p
      "Free pizza will be served Sunday afternoon. Please inform us
@@ -180,7 +182,7 @@
 
 (defun html-render-body-matchmaking ()
   (with-html
-    (:i "( matchmaking service in the future )")))
+    (:center (:i "( matchmaking service to come )"))))
 
 (defun html-render-entry-title (entry)
   (with-html
