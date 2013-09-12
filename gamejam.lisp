@@ -64,8 +64,8 @@
 
 (defparameter *subsites*
   (list
-   (defsite index "Info" "#a7e1ed")
-   (defsite matchmaking "Matching" "#daef80")
+   (defsite index "Info" "#daef80")
+   (defsite timetable "Timetable" "#a7e1ed")
    (defsite entries "Entries" "#f49896")
    (defsite prizes "Prizes" "#f4f896")))
 
@@ -117,7 +117,7 @@
     (:header
      (:img :src "images/header.png"))))
 
-(defun html-render-menu-item (name ref)
+(defun html-render-menu-item (name ref color)
   (with-html
     (:div
      :class "menu-item-container"
@@ -125,6 +125,7 @@
       :href ref
       (:div
        :class "menu-item"
+       :style (format nil "background-color: ~a;" color)
        :id (concatenate 'string "menu-item-" ref)
        (fmt name))))))
 
@@ -136,7 +137,8 @@
        (fmt
         (html-render-menu-item
          (subsite-title site)
-         (subsite-url site)))))))
+         (subsite-url site)
+         (subsite-color site)))))))
 
 (defun html-render-body-index ()
   (with-html
@@ -156,16 +158,14 @@
      (:li "All programming languages allowed.")
      (:li "All publicly available frameworks, libraries & assets allowed.")
      (:li "Source code and a screen shot must be included in the final delivery."))
-    (:h3 "Timetable")
-    (fmt (html-render-timetable *timetable*))
     (:h3 "Matchmaking")
     (:p
      "Still missing that special someone on your team that can make you
        feel all warm and fuzzy inside (or at least turn your pixel-poop into
        something you might dare to call \"art\" when nobody is listening?)")
     (:p
-     "Show up at 15:00 on Friday the 27th, or register in our "
-     (:a :href "matchmaking" "matchmaking service")
+     "Show up at 15:00 on Friday the 27th, or chip an email to "
+     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
      ".")
     (:h3 "Not associated with UiO?")
     (:p
@@ -180,9 +180,9 @@
        beforehand if you've got any specific dietary needs. ")
     (:p "Free coffee will of course be available at all times.")))
 
-(defun html-render-body-matchmaking ()
+(defun html-render-body-timetable ()
   (with-html
-    (:center (:i "( matchmaking service to come )"))))
+    (fmt (html-render-timetable *timetable*))))
 
 (defun html-render-entry-title (entry)
   (with-html
