@@ -42,14 +42,17 @@
   (make-instance 'ajax-processor :server-uri "/ajax"))
 
 ;; ---------------------------------------------------------- [ HTML macros ]
+(defparameter *prologue* "<!DOCTYPE html>"
+  "First line of HTML output (used when :PROLOGUE keyword argument is T)")
+
 (defmacro with-html-page (&body body)
   `(with-html-output-to-string
-       (*standard-output* nil :prologue t :indent nil)
+       (*standard-output* nil :prologue t :indent t)
      ,@body))
 
 (defmacro with-html (&body body)
   `(with-html-output-to-string
-       (*standard-output* nil :indent nil)
+       (*standard-output* nil :indent t)
      ,@body))
 
 ;; ------------------------------------------------------- [ Site structure ]
@@ -115,7 +118,8 @@
 (defun html-render-header ()
   (with-html
     (:header
-     (:img :src "images/header.png"))))
+     (:img :src "images/header.png"
+           :alt "Åpen Sone Game Jam"))))
 
 (defun html-render-menu-item (name ref color)
   (with-html
