@@ -42,8 +42,7 @@
   (make-instance 'ajax-processor :server-uri "/ajax"))
 
 ;; ---------------------------------------------------------- [ HTML macros ]
-(defparameter *prologue* "<!DOCTYPE html>"
-  "First line of HTML output (used when :PROLOGUE keyword argument is T)")
+(setf *prologue* "<!DOCTYPE html>")
 
 (defmacro with-html-page (&body body)
   `(with-html-output-to-string
