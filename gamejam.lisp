@@ -166,16 +166,24 @@
     (:p
      "Still missing that special someone on your team that can make you
        feel all warm and fuzzy inside (or at least turn your pixel-poop into
-       something you might dare to call \"art\" when nobody is listening?)")
+       something you might dare to call \"art\" when nobody is listening?).")
     (:p
      "Show up at 15:00 on Friday the 27th, or chip an email to "
-     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
-     ".")
-    (:h3 "Not associated with UiO?")
+     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no"))
+    (:h3 "Venue")
     (:p
-     "Guest accounts will be provided, allowing you to use the machines at
-       Ifi during the event.")
-    (:p "When you need access to the building, please call:")
+     "Game Jam will take place at room Ada 3407, also known as Sonen, located
+     on the third floor of Ole-Johan Dahls hus.")
+    (:p
+     "If you already have a UiO student card, and need extended access to
+     Ole-Johan Dahls hus during the weekend, please send us your full name
+     and student number beforehand.")
+    (:p
+     "Guest accounts will be provided for those of you who aren't associated
+     with UiO, allowing you to use the machines at Ole-Johan Dahls hus
+     during the event.")
+    (:p "If you need access to the building during the event, please
+    call:")
     (:ul
      (:li "Simen (96 82 24 48)"))
     (:h3 "Pizza, coffee & other foods")
