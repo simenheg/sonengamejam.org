@@ -234,6 +234,7 @@
     (:p
      (doplist (format url (entry-downloads entry))
        (htm (:a :href url
+                :class "download-link"
                 (:img :class "download-link"
                       :src (format-image format))))
        (fmt " ")))))

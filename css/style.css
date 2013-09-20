@@ -171,7 +171,12 @@ td.timestamp
     padding-bottom: 8em;
 }
 
-.download-link
+a.download-link
+{
+    text-decoration: none;
+}
+
+img.download-link
 {
     width: 48px;
     height: 48px;
@@ -184,18 +189,10 @@ td.timestamp
     border-radius: 0.6em;
 }
 
-
-.download-link:hover
+img.download-link:hover
 {
     background: #ef716e;
     border-color: #ef716e;
-}
-
-
-.download-link img
-{
-    width: 100%;
-    min-height: 100%;
 }
 
 h2
