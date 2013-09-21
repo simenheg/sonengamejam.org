@@ -298,7 +298,7 @@
             :rel "stylesheet"
             :type "text/css"
             :href "style.css")
-           (:title "Game Jam 2013"))
+           (:title "Sonen Game Jam 2013"))
     (:body
      (:div
       :id "frame"
