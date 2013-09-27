@@ -146,9 +146,9 @@
 (defun html-render-body-index ()
   (with-html
     (:p
-     "Make a game in 48 hours! The purpose of the Game Jam is to gather
+     "Make a game in 48 hours! The purpose of Sonen Game Jam is to gather
        aspiring game developers, rookies and veterans alike. Everyone is
-       eligible enter, and the entry is no fee. No prior registration is
+       eligible to enter, and the entry is free. No prior registration is
        needed, all you have to do is to show up at Sonen, Ole-Johan Dahls
        hus, September 27th!")
     (:h3 "Rules")
@@ -168,10 +168,10 @@
        something you might dare to call \"art\" when nobody is listening?).")
     (:p
      "Show up at 15:00 on Friday the 27th, or chip an email to "
-     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no"))
+     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no."))
     (:h3 "Venue")
     (:p
-     "Game Jam will take place at room Ada 3407, also known as Sonen, located
+     "Sonen Game Jam will take place at room Ada 3407, also known as Sonen, located
      on the third floor of Ole-Johan Dahls hus.")
     (:p
      "If you already have a UiO student card, and need extended access to
@@ -298,7 +298,7 @@
             :rel "stylesheet"
             :type "text/css"
             :href "style.css")
-           (:title "Game Jam 2013"))
+           (:title "Sonen Game Jam 2013"))
     (:body
      (:div
       :id "frame"
