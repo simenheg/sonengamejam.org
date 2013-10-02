@@ -327,3 +327,12 @@
   :framework 'melonjs
   :downloads '(:zip "http://sonen.ifi.uio.no/w/images/7/7a/themanwhowantedtoknow.zip")
   :screenshot "the-man-who-wanted-to-know.png")
+
+(defentry 'sep-13
+  :team-name "Flyvefisk"
+  :game-title "Not CraftMine"
+  :team-members '("Peter Havgar"
+                  "Persijn Kwekkeboom")
+  :framework 'processing
+  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/c5/Not_CraftMine_0_2.zip")
+  :screenshot "not_craftmine.png")
