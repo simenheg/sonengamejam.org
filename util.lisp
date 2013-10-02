@@ -19,3 +19,8 @@
 (defun lisp-value-from-file (filename)
   (with-open-file (stream filename)
     (read stream)))
+
+(defun print-file (filename)
+  (with-open-file (stream filename)
+    (loop for line = (read-line stream nil)
+          while line do (princ line))))

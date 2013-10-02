@@ -46,6 +46,7 @@
    (defsite index "Info" "#daef80")
    (defsite timetable "Timetable" "#a7e1ed")
    (defsite entries "Entries" "#f49896")
+   (defsite tips "Tips" "#c6dcc8")
    (defsite prizes "Prizes" "#f4f896")))
 
 (defun subsite-url (subsite)
@@ -239,6 +240,10 @@
   (with-html
     (dolist (gamejam *gamejams*)
       (fmt (html-render-entries gamejam)))))
+
+(defun html-render-body-tips ()
+  (with-html
+    (print-file "tips.html")))
 
 ;; --------------------------------------------------------------- [ Prizes ]
 (defparameter *prizes* (lisp-value-from-file "prizes.lisp"))
