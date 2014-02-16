@@ -1,15 +1,21 @@
-(("Friday 27th"
-  ("15:00" "Registrations open & matchmaking")
-  ("15:30" "Talk: Crashcourse in LÖVE (Lua)")
+(("Friday 14"
+  ("14:00" "Registrations open & matchmaking")
+  ("14:30" "Talk: Processing intro")
+  ("15:30" "Talk: LÖVE intro")
   ("17:00" "Theme announcement & starting shot")
-  ("17:05" "Talk: Crashcourse in Processing (Java)")
-  ("24:00" "Time to go home "))
- ("Saturday 28th"
+  ("17:05" "Talk: git intro")
+  ("18:00" "Talk: Unity intro")
+  ("19:00" "Talk: libGDX intro")
+  ("24:00" "Time to go home"))
+ ("Saturday 15"
   ("10:00" "Doors open")
-  ("18:00" "Talk: Crashcourse in pixelart")
-  ("21:00" "Talk: Anatomy of an arcade machine")
-  ("24:00" "Time to go home "))
- ("Sunday 29th"
+  ("14:30" "Talk: game physics intro")
+  ("15:30" "Talk: pixel art intro")
+  ("17:00" "Talk: 2D animation intro")
+  ("18:00" "Talk: game music intro")
+  ("19:00" "Talk: effects with shaders")
+  ("24:00" "Time to go home"))
+ ("Sunday 16"
   ("10:00" "Doors open")
   ("17:00" "Submission deadline")
   ("17:15" "Showoff on the big screen")

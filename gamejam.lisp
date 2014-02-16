@@ -43,7 +43,7 @@
 
 (defparameter *subsites*
   (list
-   (defsite index "Info" "#daef80")
+   (defsite index "Info" "#ffb868")
    (defsite timetable "Timetable" "#a7e1ed")
    (defsite entries "Entries" "#f49896")
    (defsite tips "Tips" "#c6dcc8")
@@ -95,7 +95,7 @@
 (defun html-render-header ()
   (with-html
     (:header
-     (:img :src "images/header.png"
+     (:img :src "images/header-2014-03.png"
            :alt "Åpen Sone Game Jam"))))
 
 (defun html-render-menu-item (name ref color)
@@ -127,10 +127,9 @@
      "Make a game in 48 hours! The purpose of Sonen Game Jam is to gather
        aspiring game developers, rookies and veterans alike. Everyone is
        eligible to enter, and the entry is free. No prior registration is
-       needed, all you have to do is to show up at Sonen, Ole-Johan Dahls
-       hus, September 27th!")
+       needed, all you have to do is to show up at Sonen, Ole-Johan Dahls hus,
+       March 14!")
     (:h3 "Rules")
-    (:p (:i "Note, all rules are subject to change before September 27th!"))
     (:ul
      (:li "One game submission per team.")
      (:li "There is no limit on the number of team members.")
@@ -145,12 +144,13 @@
        feel all warm and fuzzy inside (or at least turn your pixel-poop into
        something you might dare to call \"art\" when nobody is listening?).")
     (:p
-     "Show up at 15:00 on Friday the 27th, or chip an email to "
+     "Show up at 14:00 on Friday the 14th, or chip an email to "
      (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no."))
     (:h3 "Venue")
     (:p
      "Sonen Game Jam will take place at room Ada 3407, also known as Sonen, located
-     on the third floor of Ole-Johan Dahls hus.")
+     on the third floor of "
+     (:a :href "http://www.openstreetmap.org/way/35201513#map=18/59.94357/10.71846" "Ole-Johan Dahls hus."))
     (:p
      "If you already have a UiO student card, and need extended access to
      Ole-Johan Dahls hus during the weekend, please send us your full name
