@@ -4,6 +4,7 @@ body
     font-family: Helvetica, sans;
     text-align: center;
     background-color: black;
+    background-size: cover;
     background-image:url('../images/bg.png');
 }
 
