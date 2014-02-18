@@ -1,12 +1,10 @@
 (ql:quickload :alexandria)
-(ql:quickload :cl-json)
 (ql:quickload :cl-who)
 (ql:quickload :ht-simple-ajax)
 (ql:quickload :hunchentoot)
-(ql:quickload :hunchentoot-test)
 
 (defpackage :gamejam
-  (:use :cl :hunchentoot :cl-who :ht-simple-ajax :json :alexandria)
+  (:use :cl :hunchentoot :cl-who :ht-simple-ajax :alexandria)
   (:export :start-server))
 
 (in-package :gamejam)
