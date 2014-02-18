@@ -186,8 +186,11 @@
 (defun html-render-entry-screenshot (entry)
   (with-html
     (when-let* ((screenshot (entry-screenshot entry))
-                (uri (concatenate 'string "screenshots/" screenshot)))
-      (htm (:div :class "screenshot" (:a :href uri (:img :src uri)))))))
+                (uri (format nil "screenshots/~a" screenshot))
+                (thumb (format nil "screenshots/thumbs/~a" screenshot)))
+      (htm
+       (:div :class "screenshot"
+             (:a :href uri (:img :src (if (probe-file thumb) thumb uri))))))))
 
 (defun html-render-entry-team-members (entry)
   (with-html
