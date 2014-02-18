@@ -125,10 +125,26 @@
   (with-html
     (:p
      "Make a game in 48 hours! The purpose of Sonen Game Jam is to gather
-       aspiring game developers, rookies and veterans alike. Everyone is
-       eligible to enter, and the entry is free. No prior registration is
-       needed, all you have to do is to show up at Sonen, Ole-Johan Dahls hus,
-       March 14!")
+       aspiring game makers, rookies and veterans alike. Everyone is eligible
+       to enter, and the entry is free. No prior registration is needed, all
+       you have to do is to show up at Sonen, Ole-Johan Dahls hus, March 14!")
+    (:h3 "Venue")
+    (:p
+     (:strong "Sonen Game Jam will take place at room Ada 3407, also known as
+  Sonen, located on the third floor of Ole-Johan Dahls hus, close to Forskningsparken station. " (:a :href "http://www.openstreetmap.org/way/35201513#map=17/59.94351/10.71872" "(map)")))
+    (:p
+     "If you already have a UiO student card, and need extended access to
+     Ole-Johan Dahls hus during the weekend, please send us your full name
+     and student number beforehand.")
+    (:p
+     "Guest accounts will be provided for those of you who aren't associated
+     with UiO, allowing you to use the machines at Ole-Johan Dahls hus
+     during the event.")
+    (:p "If you need access to the building during the event, please
+    call one of us:")
+    (:ul
+     (:li "Simen (96 82 24 48)")
+     (:li "Jonny (42 88 50 35)"))
     (:h3 "Rules")
     (:ul
      (:li "One game submission per team.")
@@ -145,24 +161,9 @@
        something you might dare to call \"art\" when nobody is listening?).")
     (:p
      "Show up at 14:00 on Friday the 14th, or chip an email to "
-     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no."))
-    (:h3 "Venue")
-    (:p
-     "Sonen Game Jam will take place at room Ada 3407, also known as Sonen, located
-     on the third floor of "
-     (:a :href "http://www.openstreetmap.org/way/35201513#map=18/59.94357/10.71846" "Ole-Johan Dahls hus."))
-    (:p
-     "If you already have a UiO student card, and need extended access to
-     Ole-Johan Dahls hus during the weekend, please send us your full name
-     and student number beforehand.")
-    (:p
-     "Guest accounts will be provided for those of you who aren't associated
-     with UiO, allowing you to use the machines at Ole-Johan Dahls hus
-     during the event.")
-    (:p "If you need access to the building during the event, please
-    call:")
-    (:ul
-     (:li "Simen (96 82 24 48)"))
+     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
+     "or"
+     (:a :href "mailto:jwringstad@gmail.com" "jwringstad@gmail.com"))
     (:h3 "Pizza, coffee & other foods")
     (:p
      "Free pizza will be served Sunday afternoon. Please inform us
