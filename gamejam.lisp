@@ -126,6 +126,10 @@
        aspiring game makers, rookies and veterans alike. Everyone is eligible
        to enter, and the entry is free. No prior registration is needed, all
        you have to do is to show up at Sonen, Ole-Johan Dahls hus, March 14!")
+    (:h3 "Livestream")
+    (:p
+     "Check out our livestream at"
+     (:a :href "http://www.twitch.tv/sonengamejam" "Twitch.tv") "!")
     (:h3 "Venue")
     (:p
      (:strong "Sonen Game Jam will take place at room Ada 3407, also known as
