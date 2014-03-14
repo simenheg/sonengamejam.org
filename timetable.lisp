@@ -6,7 +6,7 @@
   ("17:05" "Talk: Introduction to git for version control")
   ("18:00" "Talk: Introduction to Unity")
   ("19:00" "Talk: Introduction to libGDX: make 2D games with java")
-  ("24:00" "Time to go home"))
+  ("22:30" "Time to go home"))
  ("Saturday 15"
   ("10:00" "Doors open")
   ("11:15" "Talk: Introduction to game physics")
