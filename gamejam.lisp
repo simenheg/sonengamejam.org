@@ -126,6 +126,11 @@
        aspiring game makers, rookies and veterans alike. Everyone is eligible
        to enter, and the entry is free. No prior registration is needed, all
        you have to do is to show up at Sonen, Ole-Johan Dahls hus, March 14!")
+    (:h3 "Physics talk source code")
+    (:p
+     "We've uploaded the "
+     (:a :href "http://pastebin.com/U8uHH5bP" "Processing source code")
+     "from the physics talk held by Andreas.")
     (:h3 "Livestream")
     (:p
      "Check out our livestream at"
@@ -146,7 +151,7 @@
     call one of us:")
     (:ul
      (:li "Simen (96 82 24 48)")
-     (:li "Jonny (42 88 50 35)"))
+     (:li "Jonny (45 88 50 35)"))
     (:h3 "Rules")
     (:ul
      (:li "One game submission per team.")
