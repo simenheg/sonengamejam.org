@@ -31,6 +31,12 @@
      (pygame "Pygame" "http://www.pygame.org/"))))
 
 ;; ----------------------------------------------------- [ Download formats ]
+(defun format-precedence (format)
+  (position format '(:play :jar :love :blender :github :bitbucket :zip)))
+
+(defun format< (f1 f2)
+  (< (format-precedence f1) (format-precedence f2)))
+
 (defun format-image (format)
   (concatenate
    'string "icons/"
@@ -40,7 +46,8 @@
      (:jar "jar.png")
      (:zip "zip.png")
      (:love "love.png")
-     (:play "play.png"))))
+     (:play "play.png")
+     (:blender "blender.png"))))
 
 ;; -------------------------------------------------------------- [ Entries ]
 (defstruct entry
@@ -58,6 +65,9 @@
   (let ((new-entry (apply #'make-entry args)))
     (setf (entry-team-members new-entry) ; keep team member list sorted
           (sort (entry-team-members new-entry) #'string<))
+
+    (setf (entry-downloads new-entry) ; keep team member list sorted
+          (sort (entry-downloads new-entry) #'format< :key #'first))
 
     (when-let ((framework-name (entry-framework new-entry)))
       (let ((framework (find framework-name *known-frameworks*
@@ -84,7 +94,7 @@
   :game-title "The Flood"
   :team-members '("Thor Merlin Lervik")
   :framework 'processing
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/b/b2/game-jam-2013-escape.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/b/b2/game-jam-2013-escape.zip"))
   :screenshot "the-flood-2.png")
 
 (defentry 'may-13
@@ -94,7 +104,7 @@
                   "Peter Rasmussen Lubiana"
                   "Robin Aasen")
   :framework 'gamemaker
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/7/7f/fat_pixie_studios-bob-in-chains-0.1.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/7/7f/fat_pixie_studios-bob-in-chains-0.1.zip"))
   :rank 2
   :screenshot "bob-in-chains.png")
 
@@ -103,7 +113,7 @@
   :game-title "Pig Run"
   :team-members '("Simen Heggestøyl")
   :framework 'love
-  :downloads '(:love "http://folk.uio.no/simenheg/pig-run.love")
+  :downloads '((:love "http://folk.uio.no/simenheg/pig-run.love"))
   :screenshot "pig-run.png")
 
 (defentry 'may-13
@@ -111,7 +121,7 @@
   :game-title "Fishly"
   :team-members '("Lorenz Kellerer")
   :framework 'unity
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/cb/code_keep_it_lol.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/c/cb/code_keep_it_lol.zip"))
   :rank 3)
 
 (defentry 'may-13
@@ -124,8 +134,8 @@
                   "Lars Bjørlykke Kristiansen"
                   "Stine Skillebek")
   :framework 'cocos2d
-  :downloads '(:zip "https://github.com/LarsBK/sonengamejam/archive/master.zip"
-               :github "https://github.com/LarsBK/sonengamejam/")
+  :downloads '((:zip "https://github.com/LarsBK/sonengamejam/archive/master.zip")
+               (:github "https://github.com/LarsBK/sonengamejam/"))
   :screenshot "bobs-silly-adventure-to-france-ii.png")
 
 (defentry 'may-13
@@ -133,8 +143,8 @@
   :game-title "The aMAZEing Escape"
   :team-members '("Daniel Rødskog" "Erlend Kristiansen")
   :framework 'processing
-  :downloads '(:jar "https://bitbucket.org/HrKristiansen/gamejam2013/downloads/game.jar"
-               :bitbucket "https://bitbucket.org/HrKristiansen/gamejam2013")
+  :downloads '((:jar "https://bitbucket.org/HrKristiansen/gamejam2013/downloads/game.jar")
+               (:bitbucket "https://bitbucket.org/HrKristiansen/gamejam2013"))
   :screenshot "the-amazeing-escape.png")
 
 (defentry 'may-13
@@ -142,7 +152,7 @@
   :game-title "Rancid"
   :team-members '("Martin Stensgård")
   :framework 'amos
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/0/0a/Rancid.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/0/0a/Rancid.zip"))
   :screenshot "rancid.png")
 
 (defentry 'may-13
@@ -151,8 +161,8 @@
   :team-members '("Julian Hisdal Nymark"
                   "Kyrre Havik Eriksen")
   :framework 'love
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/2/2f/team-beam-dark-escape.zip"
-               :bitbucket "https://bitbucket.org/beamteam/gamejamgame")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/2/2f/team-beam-dark-escape.zip")
+               (:bitbucket "https://bitbucket.org/beamteam/gamejamgame"))
   :rank 1
   :screenshot "dark-escape.png")
 
@@ -161,7 +171,7 @@
   :game-title "The Escape"
   :team-members '("Andreas Orvik" "Ivar Tryti" "Stian Valle")
   :framework 'love
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/0/03/TheEscape.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/0/03/TheEscape.zip"))
   :screenshot "the-escape.png")
 
 (defentry 'may-13
@@ -172,17 +182,18 @@
                   "Linda Bech"
                   "Tommy Vitikka")
   :framework 'melonjs
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/c9/Team_kyrre.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/c/c9/Team_kyrre.zip"))
   :screenshot "team-kyrre.png")
 
 ;; September 2013
+
 (defentry 'sep-13
   :team-name "Ευκλείδης"
   :game-title "Grand Theft Athens"
   :team-members '("Simen Heggestøyl"
                   "Thor Merlin Lervik")
   :framework 'love
-  :downloads '(:love "http://folk.uio.no/simenheg/grand-theft-athens.love")
+  :downloads '((:love "http://folk.uio.no/simenheg/grand-theft-athens.love"))
   :screenshot "gta.png"
   :rank 3)
 
@@ -194,7 +205,7 @@
                   "Vetle Solgaard"
                   "Tønnes Nygaard")
   :framework 'processing
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/3/35/BewareTheAngles.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/3/35/BewareTheAngles.zip"))
   :screenshot "beware-the-angels.png")
 
 (defentry 'sep-13
@@ -204,7 +215,7 @@
                   "Srod Karim"
                   "Jonathan Ringstad")
   :framework 'love
-  :downloads '(:zip "https://docs.google.com/file/d/0B-g6pWxqlbn7S1dPSFJtTzIzVFE/edit?usp=drive_web")
+  :downloads '((:zip "https://docs.google.com/file/d/0B-g6pWxqlbn7S1dPSFJtTzIzVFE/edit?usp=drive_web"))
   :screenshot "bitquest.png"
   :rank 2)
 
@@ -214,7 +225,7 @@
   :team-members '("Håkon Struijk Holmen"
                   "Aleksander Berge Kjellsen")
   :framework 'love
-  :downloads '(:love "http://thehawken.org/BluBall.love")
+  :downloads '((:love "http://thehawken.org/BluBall.love"))
   :screenshot "bluball.png")
 
 (defentry 'sep-13
@@ -225,8 +236,8 @@
                   "Marie Roald"
                   "Fern Jimeno")
   :framework 'processing
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/3/37/geohazard.zip"
-               :github "https://github.com/ehatle/GAMEJAM2013")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/3/37/geohazard.zip")
+               (:github "https://github.com/ehatle/GAMEJAM2013"))
   :screenshot "geohazard.png")
 
 (defentry 'sep-13
@@ -236,8 +247,8 @@
                   "Dag Martin Mikkelsen"
                   "Lasse Jul-Larsen")
   :framework 'iio
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/cd/epletd.zip"
-               :github "https://github.com/ljl/epletd")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/c/cd/epletd.zip")
+               (:github "https://github.com/ljl/epletd"))
   :screenshot "epletd.png")
 
 (defentry 'sep-13
@@ -249,8 +260,8 @@
                   "Arne Hassel"
                   "Pawel Kozlowski")
   :framework 'love
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/b/b3/geomancer.zip"
-               :github "https://github.com/Team-Permadeath/geomancer")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/b/b3/geomancer.zip")
+               (:github "https://github.com/Team-Permadeath/geomancer"))
   :screenshot "geomancer.png")
 
 (defentry 'sep-13
@@ -262,8 +273,8 @@
                   "Kristoffer Gudmundsen"
                   "Eivind Furuberg")
   :framework 'gamesalad
-  :downloads '(:play "http://arcade.gamesalad.com/game/114562"
-               :zip "http://sonen.ifi.uio.no/w/images/5/5a/geometrophobia.zip")
+  :downloads '((:play "http://arcade.gamesalad.com/game/114562")
+               (:zip "http://sonen.ifi.uio.no/w/images/5/5a/geometrophobia.zip"))
   :screenshot "geometrophobia.png")
 
 (defentry 'sep-13
@@ -271,7 +282,7 @@
   :game-title "Geometry Trek III: The Search for SICP"
   :team-members '("Marius Ekeberg")
   :framework 'love
-  :downloads '(:love "http://folk.uio.no/simenheg/geometry-trek-iii.love")
+  :downloads '((:love "http://folk.uio.no/simenheg/geometry-trek-iii.love"))
   :screenshot "geometry-trek-iii.png")
 
 (defentry 'sep-13
@@ -284,9 +295,9 @@
                   "Robert Kolner"
                   "John Lausund")
   :framework 'jquery
-  :downloads '(:play "http://neversquare.xennis.de/"
-               :zip "http://sonen.ifi.uio.no/w/images/0/0f/neversquare.zip"
-               :bitbucket "https://bitbucket.org/robert_kolner/darkside")
+  :downloads '((:play "http://neversquare.xennis.de/")
+               (:zip "http://sonen.ifi.uio.no/w/images/0/0f/neversquare.zip")
+               (:bitbucket "https://bitbucket.org/robert_kolner/darkside"))
   :screenshot "neversquare.png")
 
 (defentry 'sep-13
@@ -295,7 +306,7 @@
   :team-members '("Karl Magnus Kalvik"
                   "Bård-Kristian Krohg")
   :framework 'blender
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/cd/Orb.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/c/cd/Orb.zip"))
   :screenshot "orb.png"
   :rank 1)
 
@@ -308,7 +319,7 @@
                   "Radka Musilkova"
                   "Saba Sadeghi Rashed")
   :framework 'pygame
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/2/2b/lost-hammer-of-thor.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/2/2b/lost-hammer-of-thor.zip"))
   :screenshot "lost-hammer-of-thor.png")
 
 (defentry 'sep-13
@@ -316,8 +327,8 @@
   :game-title "Snake in Space"
   :team-members '("Kyrre Havik Eriksen")
   :framework 'love
-  :downloads '(:love "http://folk.uio.no/simenheg/snakeInSpace.love"
-               :github "https://github.com/Kyrremann/snake-in-space")
+  :downloads '((:love "http://folk.uio.no/simenheg/snakeInSpace.love")
+               (:github "https://github.com/Kyrremann/snake-in-space"))
   :screenshot "snake-in-space.png")
 
 (defentry 'sep-13
@@ -325,7 +336,8 @@
   :game-title "The Man Who Wanted to Know"
   :team-members '("Peter Lubiana")
   :framework 'melonjs
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/7/7a/themanwhowantedtoknow.zip")
+  :downloads '((:play "http://folk.uio.no/simenheg/the-man-who-wanted-to-know/")
+               (:zip "http://sonen.ifi.uio.no/w/images/7/7a/themanwhowantedtoknow.zip"))
   :screenshot "the-man-who-wanted-to-know.png")
 
 (defentry 'sep-13
@@ -334,5 +346,5 @@
   :team-members '("Peter Havgar"
                   "Persijn Kwekkeboom")
   :framework 'processing
-  :downloads '(:zip "http://sonen.ifi.uio.no/w/images/c/c5/Not_CraftMine_0_2.zip")
+  :downloads '((:zip "http://sonen.ifi.uio.no/w/images/c/c5/Not_CraftMine_0_2.zip"))
   :screenshot "not_craftmine.png")
