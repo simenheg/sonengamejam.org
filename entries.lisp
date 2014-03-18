@@ -7,6 +7,7 @@
 
 (defparameter *gamejams*
   (list
+   (make-gamejam :id 'mar-14 :date "March 2014" :theme "Coupled")
    (make-gamejam :id 'sep-13 :date "September 2013" :theme "Geometry")
    (make-gamejam :id 'may-13 :date "May 2013" :theme "Escape")))
 
@@ -28,7 +29,11 @@
      (gamesalad "GameSalad" "http://gamesalad.com/")
      (jquery "jQuery" "http://jquery.com/")
      (blender "Blender" "http://www.blender.org/")
-     (pygame "Pygame" "http://www.pygame.org/"))))
+     (pygame "Pygame" "http://www.pygame.org/")
+     (qt "Qt" "https://qt-project.org/")
+     (javascript "JavaScript" "http://en.wikipedia.org/wiki/Javascript")
+     (opengl "OpenGL" "http://www.opengl.org/")
+     (libgdx "libgdx" "http://libgdx.badlogicgames.com/"))))
 
 ;; ----------------------------------------------------- [ Download formats ]
 (defun format-precedence (format)
@@ -348,3 +353,120 @@
   :framework 'processing
   :downloads '((:zip "http://sonen.ifi.uio.no/w/images/c/c5/Not_CraftMine_0_2.zip"))
   :screenshot "not_craftmine.png")
+
+;; March 2014
+
+(defentry 'mar-14
+  :team-name "3D-Incorporated"
+  :game-title "Devotion"
+  :team-members '("Persijn David Kwekkeboom"
+                  "Thor Merlin Lervik"
+                  "Ådne Lyngstad Nilsen")
+  :framework 'blender
+  :downloads '((:blender "http://folk.uio.no/simenheg/devotion.blend"))
+  :screenshot "devotion.png")
+
+(defentry 'mar-14
+  :team-name "Blodgruppa"
+  :game-title "Receptor"
+  :team-members '("Sigmund Hansen")
+  :framework 'unity
+  :downloads '((:zip "http://folk.uio.no/simenheg/Receptor.zip"))
+  :screenshot "receptor.png")
+
+(defentry 'mar-14
+  :team-name "Camel Jockeys"
+  :game-title "Forest"
+  :team-members '("Mitch Curtis"
+                  "Triva Linda M. Shahin"
+                  "Ådne Lyngstad Nilsen")
+  :framework 'qt
+  :downloads '((:zip "http://folk.uio.no/simenheg/gamejam-camel-jockey.zip"))
+  :screenshot "forest.png")
+
+(defentry 'mar-14
+  :team-name "Faeces Fairy"
+  :game-title "Typing Of The LÖVE"
+  :team-members '("Julian Nymark"
+                  "Srod Karim"
+                  "Jonathan Ringstad"
+                  "Preben Ø. Aas")
+  :framework 'love
+  :downloads '((:love "http://folk.uio.no/simenheg/typing-of-the-love.love")
+               (:bitbucket "https://bitbucket.org/Sind/typing-of-the-l-ve"))
+  :screenshot "typing-of-the-love.png")
+
+(defentry 'mar-14
+  :team-name "Marky Games"
+  :game-title "Animal Operatus"
+  :team-members '("Marius Ekeberg"
+                  "Marianne Hval")
+  :framework 'melonjs
+  :downloads '((:play "http://folk.uio.no/simenheg/animal_operatus/")
+               (:zip "http://folk.uio.no/simenheg/animal_operatus.zip"))
+  :screenshot "animal-operatus.png")
+
+(defentry 'mar-14
+  :team-name "Pocket Fluff Entertainment"
+  :game-title "Space Whales"
+  :team-members '("Solveig Hansen"
+                  "Oliver Getz Rodahl"
+                  "Christina Lewis")
+  :framework 'javascript
+  :downloads '((:play "http://folk.uio.no/simenheg/space-whales/")
+               (:zip "http://folk.uio.no/simenheg/space-whales.zip"))
+  :screenshot "space-whales.png")
+
+(defentry 'mar-14
+  :team-name "popkek"
+  :game-title "Frappy Bird"
+  :team-members '("Simen Heggestøyl"
+                  "Ådne Lyngstad Nilsen")
+  :framework 'love
+  :downloads '((:love "http://folk.uio.no/simenheg/FrappyBird.love")
+               (:github "https://github.com/simenheg/frappy-bird"))
+  :screenshot "frappy-bird.png")
+
+(defentry 'mar-14
+  :team-name "Rancid Applications"
+  :game-title "Rancid Balls"
+  :team-members '("Martin Stensgård")
+  :framework 'opengl
+  :downloads '((:zip "https://github.com/mastensg/rancid2/archive/master.zip")
+               (:github "https://github.com/mastensg/rancid2"))
+  :screenshot "rancid-balls.png")
+
+(defentry 'mar-14
+  :team-name "Team Bob"
+  :game-title "Bob's Failed Experiment"
+  :team-members '("Lars Bjørlykke Kristiansen"
+                  "Aron Jansson Nordberg"
+                  "Stine Lønnqvist Skillebæk"
+                  "Bjørn-Ingar Bergum")
+  :framework 'unity
+  :downloads '((:zip "http://folk.uio.no/larsbk/gamejam.zip")
+               (:github "https://github.com/LarsBK/Sonen_gamejam2014"))
+  :rank 1
+  :screenshot "bobs-failed-experiment.png")
+
+(defentry 'mar-14
+  :team-name "Vegard Knutsen Lillevoll"
+  :game-title "Bobby Hop"
+  :team-members '("Vegard Knutsen Lillevoll")
+  :framework 'pygame
+  :downloads '((:zip "http://folk.uio.no/simenheg/bobby-hop.zip"))
+  :rank 2
+  :screenshot "bobby-hop.png")
+
+(defentry 'mar-14
+  :team-name "Wafflewings"
+  :game-title "Lightbringer"
+  :team-members '("Karl Magnus Kalvik"
+                  "Mathias H. Wilhelmsen"
+                  "Bård-Kristian Krohg")
+  :framework 'libgdx
+  :downloads '((:jar "http://folk.uio.no/simenheg/Lightbringer.jar")
+               (:zip "https://github.com/karlma91/gdxgame/archive/master.zip")
+               (:github "https://github.com/karlma91/gdxgame"))
+  :rank 3
+  :screenshot "lightbringer.png")

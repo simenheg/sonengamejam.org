@@ -202,7 +202,7 @@
 (defun html-render-entry-team-members (entry)
   (with-html
     (:p
-     (fmt "By ~a " (with-html (:strong (fmt (entry-team-name entry)))))
+     (fmt "by ~a " (with-html (:strong (fmt (entry-team-name entry)))))
      (:br)
      (:span :style "font-size: 0.75em;"
             (fmt (concatenate 'string "(" *english-list* ")")
@@ -221,7 +221,7 @@
 (defun html-render-entry-downloads (entry)
   (with-html
     (:p
-     (doplist (format url (entry-downloads entry))
+     (loop for (format url) in (entry-downloads entry) do
        (htm (:a :href url
                 :class "download-link"
                 (:img :class "download-link"
