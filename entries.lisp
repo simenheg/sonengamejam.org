@@ -392,8 +392,9 @@
                   "Jonathan Ringstad"
                   "Preben Ø. Aas")
   :framework 'love
-  :downloads '((:love "http://folk.uio.no/simenheg/typing-of-the-love.love")
-               (:bitbucket "https://bitbucket.org/Sind/typing-of-the-l-ve"))
+  :downloads '((:love "http://virvel.de/%7esind/Typing.love")
+               (:bitbucket "https://bitbucket.org/Sind/typing-of-the-l-ve")
+               (:zip "http://virvel.de/%7esind/Typing.zip"))
   :screenshot "typing-of-the-love.png")
 
 (defentry 'mar-14
