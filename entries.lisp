@@ -300,7 +300,7 @@
                   "Robert Kolner"
                   "John Lausund")
   :framework 'jquery
-  :downloads '((:play "http://neversquare.xennis.de/")
+  :downloads '((:play "http://xennis.github.io/NeverSquare/")
                (:zip "http://sonen.ifi.uio.no/w/images/0/0f/neversquare.zip")
                (:bitbucket "https://bitbucket.org/robert_kolner/darkside"))
   :screenshot "neversquare.png")
