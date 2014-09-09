@@ -14,8 +14,9 @@
  ("Intangible goods"
   ("Games on steam for $40"
    "http://store.steampowered.com/")
-  ("12-month Unity Pro license, worth $900"
-   "http://unity3d.com/"))
+;  ("12-month Unity Pro license, worth $900"
+;  "http://unity3d.com/")
+ )
  ("Hardware"
   ("Arduino Starter Kit"
    "http://arduino.cc/en/Main/ArduinoStarterKit")
@@ -28,6 +29,6 @@
    "https://www.thinkgeek.com/product/dd8a/")
   ("Gyroscope"
    "https://www.thinkgeek.com/product/eafc/"))
- ("Other"
-  ("A date with the Game Jam organizers"
-   nil)))
+ ;("Other"
+ ; ("A date with the Game Jam organizers" nil))
+)

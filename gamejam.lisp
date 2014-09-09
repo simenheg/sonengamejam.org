@@ -42,7 +42,7 @@
 (defparameter *subsites*
   (list
    (defsite index "Info" "#ffb868")
-   (defsite timetable "Timetable" "#a7e1ed")
+   (defsite timetable "Calendar" "#a7e1ed")
    (defsite entries "Entries" "#f49896")
    (defsite tips "Tips" "#c6dcc8")
    (defsite prizes "Prizes" "#f4f896")))
@@ -93,7 +93,7 @@
 (defun html-render-header ()
   (with-html
     (:header
-     (:img :src "images/header-2014-03.png"
+     (:img :src "images/header-2014-09.png"
            :alt "Åpen Sone Game Jam"))))
 
 (defun html-render-menu-item (name ref color)
@@ -121,16 +121,13 @@
 
 (defun html-render-body-index ()
   (with-html
+					;
+   (:h1 "About")
     (:p
      "Make a game in 48 hours! The purpose of Sonen Game Jam is to gather
        aspiring game makers, rookies and veterans alike. Everyone is eligible
        to enter, and the entry is free. No prior registration is needed, all
-       you have to do is to show up at Sonen, Ole-Johan Dahls hus, March 14!")
-    (:h3 "Physics talk source code")
-    (:p
-     "We've uploaded the "
-     (:a :href "http://pastebin.com/U8uHH5bP" "Processing source code")
-     "from the physics talk held by Andreas.")
+       you have to do is to show up at Sonen, Ole-Johan Dahls hus, Oct 24th!")
     (:h3 "Livestream")
     (:p
      "Check out our livestream at"
@@ -144,13 +141,13 @@
      Ole-Johan Dahls hus during the weekend, please send us your full name
      and student number beforehand.")
     (:p
-     "Guest accounts will be provided for those of you who aren't associated
+     "Guest accounts can be provided for those of you who aren't associated
      with UiO, allowing you to use the machines at Ole-Johan Dahls hus
      during the event.")
     (:p "If you need access to the building during the event, please
     call one of us:")
     (:ul
-     (:li "Simen (96 82 24 48)")
+     ;(:li "Simen (96 82 24 48)")
      (:li "Jonny (45 88 50 35)"))
     (:h3 "Rules")
     (:ul
@@ -273,8 +270,8 @@
   (with-html
     (:footer
      (fmt "Contact: ~a"
-          (with-html (:a :href "mailto:simenheg@ifi.uio.no"
-                         "Simen Heggestøyl"))))))
+          (with-html (:a :href "mailto:jwringstad@gmail.com"
+                         "Jonathan Ringstad"))))))
 
 (defun html-render-site (site)
   (with-html-page
