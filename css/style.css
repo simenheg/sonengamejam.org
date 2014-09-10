@@ -3,13 +3,22 @@ body
     background-attachment: fixed;
     font-family: Helvetica, sans;
     text-align: center;
-    background-color: #0C0D2C;
+    background-color: #000;
     background: linear-gradient(to bottom, #0C0D2C, #000000);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover
     background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
     /* background-image:url('../images/bg-2014-09.png'); */
+}
+html {
+    margin: 0;
+    height: 100%;
+    min-height: 100%;
 }
 
 header
