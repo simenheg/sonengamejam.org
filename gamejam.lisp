@@ -83,6 +83,7 @@
   (with-html
     (:table
      :id "timetable"
+     (:p "Details may be subject to change.")
      (loop for (day . schedule) in timetable do
        (htm (:th :colspan "2" (:strong (princ day))))
        (loop for (time event) in schedule do
@@ -126,8 +127,10 @@
     (:p
      "Make a game in 48 hours! The purpose of Sonen Game Jam is to gather
        aspiring game makers, rookies and veterans alike. Everyone is eligible
-       to enter, and the entry is free. No prior registration is needed, all
-       you have to do is to show up at Sonen, Ole-Johan Dahls hus, Oct 24th!")
+       to enter, and the entry (as well as food) is free. No prior registration is needed, all
+       you have to do is to show up at Sonen (3nd floor, room 3407), Ole-Johan Dahls hus, Oct 24th!")
+    (:h3 "Date")
+    (:p "The weekend on the 24th-26th of October (week 43), from 17:00 on Friday (theme announcement) to 17:00 on Sunday (deadline)")
     (:h3 "Livestream")
     (:p
      "Check out our livestream at"
@@ -165,8 +168,8 @@
        something you might dare to call \"art\" when nobody is listening?).")
     (:p
      "Show up at 14:00 on Friday the 14th, or chip an email to "
-     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
-     "or"
+;     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
+;     "or"
      (:a :href "mailto:jwringstad@gmail.com" "jwringstad@gmail.com"))
     (:h3 "Pizza, coffee & other foods")
     (:p

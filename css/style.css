@@ -5,6 +5,9 @@ body
     text-align: center;
     background-color: #0C0D2C;
     background: linear-gradient(to bottom, #0C0D2C, #000000);
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover
     background-size: cover;
     /* background-image:url('../images/bg-2014-09.png'); */
 }
