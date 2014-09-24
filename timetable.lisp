@@ -2,11 +2,12 @@
  ("Friday 14"
   ("14:00" "Registrations open & matchmaking")
   ("15:00" "Talk: Introduction to LÖVE: rapid 2D game development with lua")
-  ("16:00" "Talk: Introduction to LibGDX: making crossplatform games with java")
-  ("16:30" "Talk: Introduction to GIT: If it's not in source control, it doesn't exist")
+  ("16:00" "Talk: Introduction to GIT: If it's not in source control, it doesn't exist")
+  ("16:30" "Talk: Introduction to LibGDX: making crossplatform games with java")
+
   ("17:00" "Theme announcement & starting shot")
   ;("17:05" "Talk: Introduction to git for version control")
-  ("18:00" "Talk: Introduction to Unity (Unconfirmed)")
+  ("18:00" "Talk: Introduction to making games and UIs with QtQuick")
   ;("19:00" "Talk: Introduction to libGDX: make 2D games with java")
   ("24:00" "Time to go home")
   )
