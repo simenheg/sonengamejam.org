@@ -7,7 +7,7 @@
 
   ("17:00" "Theme announcement & starting shot")
   ;("17:05" "Talk: Introduction to git for version control")
-  ("18:00" "Talk: Introduction to making games and UIs with QtQuick")
+  ("18:00" "Talk: Introduction to making games and UIs with Qt Quick")
   ;("19:00" "Talk: Introduction to libGDX: make 2D games with java")
   ("24:00" "Time to go home")
   )
