@@ -1,6 +1,7 @@
 (
  ("Friday 14"
   ("14:00" "Registrations open & matchmaking")
+  ("14:00" "Talk: Introduction to Processing: 2D graphics with java")
   ("15:00" "Talk: Introduction to LÖVE: rapid 2D game development with lua")
   ("16:00" "Talk: Introduction to GIT: If it's not in source control, it doesn't exist")
   ("16:30" "Talk: Introduction to LibGDX: making crossplatform games with java")
@@ -13,7 +14,6 @@
   )
  ("Saturday 15"
   ("10:00" "Doors open")
-  ("12:00" "Talk: Introduction to Processing: 2D and 3D graphics with java (Unconfirmed)")
   ("13:00" "Talk: A quick guide to pixelart: gotchas and techniques to rapidly improve you art")
   ("14:00" "Talk: Introduction to 2D animation: making a walkcycle (Unconfirmed)")
   ("15:00" "Talk: Introduction to game physics")
