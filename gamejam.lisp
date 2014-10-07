@@ -167,7 +167,7 @@
        feel all warm and fuzzy inside (or at least turn your pixel-poop into
        something you might dare to call \"art\" when nobody is listening?).")
     (:p
-     "Show up at 14:00 on Friday the 14th, or chip an email to "
+     "Show up at 14:00 on Friday the 24th, or chip an email to "
 ;     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
 ;     "or"
      (:a :href "mailto:jwringstad@gmail.com" "jwringstad@gmail.com"))
