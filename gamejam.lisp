@@ -125,20 +125,20 @@
 					;
    (:h1 "About")
     (:p
-     "Make a game in 48 hours! The purpose of Sonen Game Jam is to gather
+     "Make a game in 48 hours! Listen to great talks! Eat pizza! The purpose of Sonen Game Jam is to gather
        aspiring game makers, rookies and veterans alike. Everyone is eligible
        to enter, and the entry (as well as food) is free. No prior registration is needed, all
-       you have to do is to show up at Sonen (3nd floor, room 3407), Ole-Johan Dahls hus, Oct 24th!")
+       you have to do is to show up at Sonen (3rd floor, room 3407), Ole-Johan Dahls hus, <strong>Oct 24th!</strong>") ; DATE
     (:h3 "Date")
-    (:p "The weekend on the 24th-26th of October (week 43), from 17:00 on Friday (theme announcement) to 17:00 on Sunday (deadline)")
+    (:p "The weekend on the <strong>24th-26th of October</strong> (week 43), from 17:00 on Friday (theme announcement) to 17:00 on Sunday (deadline)") ; DATE
     (:h3 "Livestream")
     (:p
      "Check out our livestream at"
      (:a :href "http://www.twitch.tv/sonengamejam" "Twitch.tv") "!")
     (:h3 "Venue")
     (:p
-     (:strong "Sonen Game Jam will take place at room Ada 3407, also known as
-  Sonen, located on the third floor of Ole-Johan Dahls hus, close to Forskningsparken station. " (:a :href "http://www.openstreetmap.org/way/35201513#map=17/59.94351/10.71872" "(map)")))
+     "Sonen Game Jam will take place at room <strong>Ada 3407</strong>, also known as
+  Sonen, located on the <strong>third floor of Ole-Johan Dahls hus</strong>, close to Forskningsparken station. " (:a :href "http://www.openstreetmap.org/way/35201513#map=17/59.94351/10.71872" "(map)"))
     (:p
      "If you already have a UiO student card, and need extended access to
      Ole-Johan Dahls hus during the weekend, please send us your full name
@@ -155,7 +155,7 @@
     (:h3 "Rules")
     (:ul
      (:li "One game submission per team.")
-     (:li "There is no limit on the number of team members.")
+     (:li "There is no restriction on the number of team members.")
      (:li "Time limit: 48 hours.")
      (:li "Game must conform with the given theme.")
      (:li "All programming languages allowed.")
@@ -171,6 +171,15 @@
 ;     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
 ;     "or"
      (:a :href "mailto:jwringstad@gmail.com" "jwringstad@gmail.com"))
+    (:h3 "Free Unity Pro licenses")
+    (:p "In addition to sponsoring us a Unity Pro license to give away as a prize,
+        Unity Technologies also offers free timed licenses to all participants,
+        for use during the gamejam. We will be giving these licenses out during the jam,
+        but if you want to get set up beforehand, feel free to shoot me an email.")
+    (:h3 "Free Unreal Engine 4 licenses")
+    (:p "We also offer free UE4 licenses, but we have a limited number and can only offer these
+        to registered students of the University of Oslo. Once all licenses are given away, this
+        message will be removed -- so shoot me a mail if you want one.")
     (:h3 "Pizza, coffee & other foods")
     (:p
      "Free pizza will be served Sunday afternoon. Please inform us

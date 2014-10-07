@@ -14,8 +14,8 @@
  ("Intangible goods"
   ("Games on steam for $40"
    "http://store.steampowered.com/")
-;  ("12-month Unity Pro license, worth $900"
-;  "http://unity3d.com/")
+  ("<span style=\"color:red;font-weight:bold\">(new!)</span> 12-month Unity Pro license, worth about $900"
+   "https://store.unity3d.com/products/subscription")
  )
  ("Hardware"
   ("Arduino Starter Kit"

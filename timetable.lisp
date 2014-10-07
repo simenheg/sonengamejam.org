@@ -1,5 +1,5 @@
 (
- ("Friday 14"
+ ("Friday 14" ; DATE
   ("14:00" "Registrations open & matchmaking")
   ("15:00" "Talk: Introduction to LÖVE: rapid 2D game development with lua")
   ("16:00" "Talk: Introduction to GIT: If it's not in source control, it doesn't exist")
@@ -11,7 +11,7 @@
   ;("19:00" "Talk: Introduction to libGDX: make 2D games with java")
   ("24:00" "Time to go home")
   )
- ("Saturday 15"
+ ("Saturday 15"; DATE
   ("10:00" "Doors open")
   ("12:00" "Talk: Introduction to Processing: 2D and 3D graphics with java (Unconfirmed)")
   ("13:00" "Talk: A quick guide to pixelart: gotchas and techniques to rapidly improve you art")
@@ -25,7 +25,7 @@
   ;("19:00" "Talk: Post-processing effects with fragment-shaders")
   ("24:00" "Time to go home")
   )
- ("Sunday 16"
+ ("Sunday 16"; DATE
   ("10:00" "Doors open")
   ("17:00" "Submission deadline")
   ("17:15" "Showoff on the big screen")
