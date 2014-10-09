@@ -68,12 +68,12 @@
    "/images/" (first (directory "images/")))
   (create-folder-dispatcher-and-handler
    "/screenshots/" (first (directory "screenshots/")))
-  (create-prefix-dispatcher nil 'index)))
+  (create-regex-dispatcher "^/$" 'index)))
 
 (dolist (site *subsites*)
   (let ((id (subsite-id site)))
-    (push (create-prefix-dispatcher
-           (string-downcase (format nil "/~a" id)) id)
+    (push (create-regex-dispatcher
+           (string-downcase (format nil "^/~a$" id)) id)
           *dispatch-table*)))
 
 ;; ------------------------------------------------------------ [ Timetable ]
