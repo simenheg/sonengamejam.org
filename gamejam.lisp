@@ -90,6 +90,8 @@
          (htm (:tr (:td :class "timestamp" (princ time))
                    (:td (princ event)))))))))
 
+(push (create-folder-dispatcher-and-handler "/talks/" "talks/") *dispatch-table*)
+
 ;; ------------------------------------------------------ [ HTML generation ]
 (defun html-render-header ()
   (with-html
