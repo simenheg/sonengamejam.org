@@ -90,7 +90,19 @@
          (htm (:tr (:td :class "timestamp" (princ time))
                    (:td (princ event)))))))))
 
+(defun make-redirect-shortcuts (from to);(concatenate 'string "Karl" " " "Marx")
+  (push (create-static-file-dispatcher-and-handler from to) *dispatch-table*)
+  (push (create-static-file-dispatcher-and-handler (concatenate 'string from "/") to) *dispatch-table*))
+
+
+; recursive folder dispatch so that presentations can load resources
 (push (create-folder-dispatcher-and-handler "/talks/" "talks/") *dispatch-table*)
+; overview page for talks
+(make-redirect-shortcuts "/talks" "talks/index.html")
+; redirect a foo/ to foo/index.html. No idea how to do this recursively, but this'll work for the time being.
+(make-redirect-shortcuts "/talks/shaders" "talks/shaders/index.html")
+(make-redirect-shortcuts "/talks/physics" "talks/physics/index.html")
+(make-redirect-shortcuts "/talks/git" "talks/git/index.html")
 
 ;; ------------------------------------------------------ [ HTML generation ]
 (defun html-render-header ()
