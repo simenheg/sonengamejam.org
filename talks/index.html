@@ -1,1 +1,77 @@
-overview
+<!DOCTYPE html>
+<html>
+    <head>
+
+    	<!-- META -->
+		<title> Javascript + HTML + CSS3: Windows Metro Tiles </title>
+    	<meta name="author" content="Tim Holman">
+	    <meta name="description" content="Javascript + HTML + CSS3: Windows Metro Tiles">
+
+    	<!-- CSS (not required to use tile-js, just used in my demo ) -->
+    	<link href="http://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet" type="text/css">
+    	<link rel="stylesheet" type="text/css" href="css/style.css">
+
+	    <!-- JS -->
+
+    	<!-- MISC -->
+
+	</head>
+	
+	<body>
+		<div id="container">
+
+			<div id="contents">
+
+				<div id="post">
+					<header>
+						<h1>Sonen GameJam talks</h1>
+					</header>
+
+					<!-- Info about metro tiles -->
+					<p>
+						<b> What: </b> This site contains extra course-material for some of the talks held at sonen gamejam.
+					</p>
+					<div id="metro-array" style="display: inline-block;">
+
+
+						<!-- Simple grid for the demo! None of these styles are required, thats just how I've styled my tiles -->
+						<!-- The only important thing is class="metro-tile" -->
+						<div style="width: 230px; height: 230px; float: left; margin-left: 10px">
+
+							<a class="metro-tile" style="cursor: pointer; width: 230px; height: 230px; display: block; background-color: #F1D4AF; color: #000;text-decoration: none;" href="git/">
+								GIT<br><br>
+								<img src="git-logo.png" style="display: block;margin-left: auto;margin-right: auto;">
+							</a>
+
+						</div>
+						<div style="width: 230px; height: 230px; float: left; margin-left: 10px">
+
+							<a class="metro-tile" style="cursor: pointer; width: 230px; height: 230px; display: block; background-color: #F1D4AF; color: #000;text-decoration: none;" href="shaders/">
+								Shaders<br><br>
+								<img src="shaders-logo.png" style="display: block;margin-left: auto;margin-right: auto;">
+							</a>
+
+						</div>
+						<div style="width: 230px; height: 230px; float: left; margin-left: 10px">
+
+							<a class="metro-tile" style="cursor: pointer; width: 230px; height: 230px; display: block; background-color: #F1D4AF; color: #000;text-decoration: none;" href="physics/">
+								Physics<br>
+								<img src="physics-logo.png" style="display: block;margin-left: auto;margin-right: auto; margin:20% 20% 20% 20%;">
+							</a>
+
+						</div>
+
+					</div>
+
+					<p>
+						If you think anything is missing, you can contact me at <a href="mailto:jwringstad@gmail.com">jwringstad@gmail.com</a>
+					</p>
+				</div>
+
+			</div>
+		</div>
+
+		<script src="js/tileJs.js" type="text/javascript"></script>
+
+	</body>
+</html>
