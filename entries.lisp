@@ -7,6 +7,7 @@
 
 (defparameter *gamejams*
   (list
+   (make-gamejam :id 'oct-14 :date "October 2014" :theme "Limit")
    (make-gamejam :id 'mar-14 :date "March 2014" :theme "Coupled")
    (make-gamejam :id 'sep-13 :date "September 2013" :theme "Geometry")
    (make-gamejam :id 'may-13 :date "May 2013" :theme "Escape")))
@@ -33,11 +34,14 @@
      (qt "Qt" "https://qt-project.org/")
      (javascript "JavaScript" "http://en.wikipedia.org/wiki/Javascript")
      (opengl "OpenGL" "http://www.opengl.org/")
-     (libgdx "libgdx" "http://libgdx.badlogicgames.com/"))))
+     (libgdx "libgdx" "http://libgdx.badlogicgames.com/")
+     (sdl "SDL" "https://www.libsdl.org/")
+     (illustrator "Adobe Illustrator" "https://www.adobe.com/products/illustrator/"))))
 
 ;; ----------------------------------------------------- [ Download formats ]
 (defun format-precedence (format)
-  (position format '(:play :jar :love :blender :github :bitbucket :zip)))
+  (position format '(:play :love :jar :exe :blender :gamemaker :pdf :github
+                     :bitbucket :zip)))
 
 (defun format< (f1 f2)
   (< (format-precedence f1) (format-precedence f2)))
@@ -52,7 +56,10 @@
      (:zip "zip.png")
      (:love "love.png")
      (:play "play.png")
-     (:blender "blender.png"))))
+     (:blender "blender.png")
+     (:pdf "pdf.png")
+     (:exe "exe.png")
+     (:gamemaker "gamemaker.png"))))
 
 ;; -------------------------------------------------------------- [ Entries ]
 (defstruct entry
@@ -471,3 +478,201 @@
                (:github "https://github.com/karlma91/gdxgame"))
   :rank 3
   :screenshot "lightbringer.png")
+
+;; October 2014
+
+(defentry 'oct-14
+  :team-name "asdfasdf"
+  :game-title "Bus driver"
+  :team-members '("Julian Nymark")
+  :framework 'love
+  :downloads '((:love "http://folk.uio.no/simenheg/bus-driver.love")
+               (:bitbucket "https://bitbucket.org/Julianhn/joystick_game/")
+               (:zip "https://bitbucket.org/Julianhn/joystick_game/get/master.zip"))
+  :screenshot "bus-driver.png")
+
+(defentry 'oct-14
+  :team-name "Aventurine Games"
+  :game-title "Horizon Escape"
+  :team-members '("Hans-Petter Harveg"
+                  "Arne Tobias Malkenes Ødegaard"
+                  "Lars Musland"
+                  "Espen Haukeland Kristensen")
+  :framework 'unity
+  :downloads '((:zip "https://www.dropbox.com/s/uj8ju8ffby9hqd3/Horizon%20Escape.zip?dl=1"))
+  :screenshot "horizon-escape.png")
+
+(defentry 'oct-14
+  :team-name "Veronika"
+  :game-title "Circuits"
+  :team-members '("Veronika Heimsbakk")
+  :framework 'illustrator
+  :downloads '((:pdf "http://folk.uio.no/simenheg/circuits.pdf")
+               (:zip "http://folk.uio.no/simenheg/circuits.zip"))
+  :screenshot "circuits.png")
+
+(defentry 'oct-14
+  :team-name "Techum"
+  :game-title "That one bottle"
+  :team-members '("Steffen Nilsen"
+                  "Elena Betora")
+  :framework 'libgdx
+  :downloads '((:jar "http://folk.uio.no/simenheg/thatonebottle.jar")
+               (:zip "https://github.com/myrsnipe/alchemylab/archive/master.zip")
+               (:github "https://github.com/myrsnipe/alchemylab"))
+  :screenshot "that-one-bottle.png")
+
+(defentry 'oct-14
+  :team-name "Trop Bien"
+  :game-title "IFI-Plattformer"
+  ;; TODO: Get full team-member names
+  :team-members '("Torbjørn"
+                  "Benjamin")
+  :framework 'love
+  :downloads '((:love "http://folk.uio.no/simenheg/ifi-plattformer.love")
+               (:zip "http://folk.uio.no/simenheg/ifi-plattformer.zip"))
+  :screenshot "ifi-plattformer.png")
+
+(defentry 'oct-14
+  :team-name "Team Erik"
+  :game-title "LIMIT"
+  :team-members '("Erik Nordstrøm")
+  :framework 'sdl
+  :downloads '((:github "https://github.com/erikano/2014-10-sonen-game-jam")
+               (:zip "https://github.com/erikano/2014-10-sonen-game-jam/archive/master.zip"))
+  :screenshot "limit.png")
+
+(defentry 'oct-14
+  :team-name "Robots in therapy"
+  :game-title "Toxic Business"
+  :team-members '("Haakon Drews"
+                  "Thor Merlin Lervik")
+  :framework 'pygame
+  :downloads '((:bitbucket "https://bitbucket.org/rohtie/gamejam-autumn2014")
+               (:zip "https://bitbucket.org/rohtie/gamejam-autumn2014/get/master.zip"))
+  :screenshot "toxic-business.png")
+
+(defentry 'oct-14
+  :team-name "Team Beam"
+  :game-title "LittleBigSpaceship"
+  :team-members '("Kyrre Havik Eriksen")
+  :framework 'love
+  :downloads '((:love "http://2k3.org/forum/LittleBigSpaceship.love")
+               (:exe "http://www.2k3.org/wp-content/uploads/Little-Big-Spaceship.zip")
+               (:github "https://github.com/Kyrremann/LittleBigSpaceship")
+               (:zip "https://github.com/Kyrremann/LittleBigSpaceship/archive/master.zip"))
+  :rank 3
+  :screenshot "littlebigspaceship.png")
+
+(defentry 'oct-14
+  :team-name "Team Øyvind"
+  :game-title "Limit Virus"
+  :team-members '("Øyvind J. Amundrud")
+  :framework 'libgdx
+  :downloads '((:jar "http://folk.uio.no/simenheg/limit-virus.jar")
+               (:github "https://github.com/Snovind/gamejam")
+               (:zip "https://github.com/Snovind/gamejam/archive/master.zip"))
+  :screenshot "limit-virus.png")
+
+(defentry 'oct-14
+  :team-name "Team Blox"
+  :game-title "Airs up"
+  ;; TODO: Get full team-member names
+  :team-members '("Endre"
+                  "Jarle Sandnes"
+                  "Lise T. Nilsen"
+                  "Gunnar")
+  :framework 'unity
+  :downloads '((:github "https://github.com/Sanjar14/GameJam2")
+               (:zip "https://github.com/Sanjar14/GameJam2/archive/master.zip"))
+  :screenshot "airs-up.png")
+
+(defentry 'oct-14
+  :team-name "Terje Ballestad"
+  :game-title "Jump the wall!"
+  :team-members '("Terje Ballestad")
+  :framework 'gamemaker
+  :downloads '((:gamemaker "http://folk.uio.no/simenheg/jump-the-wall.gmx"))
+  :screenshot "jump-the-wall.png")
+
+(defentry 'oct-14
+  :team-name "Roger.dat"
+  :game-title "Sugar Shock: Limited Edition"
+  ;; TODO: Verify team/get rest of team
+  :team-members '("Morten Hillbom"
+                  "Joakim Lier"
+                  "Bendik Østrem Svalastog")
+  :framework 'love
+  :downloads '((:love "http://folk.uio.no/simenheg/SugarShock.love")
+               (:zip "http://folk.uio.no/simenheg/SugarShock.zip"))
+  :screenshot "sugar-shock.png")
+
+(defentry 'oct-14
+  :team-name "TBD"
+  :game-title "Pixelhipster"
+  :team-members '("Jens Bache-Wiig"
+                  "Lars Moen")
+  :framework 'qt
+  :downloads '((:zip "http://folk.uio.no/simenheg/pixelhipster.zip"))
+  :rank 1
+  :screenshot "pixelhipster.png")
+
+(defentry 'oct-14
+  :team-name "The Icelandics"
+  :game-title "Lofsongur"
+  :team-members '("Ingrid Dæhlen"
+                  "Snorre Fredriksen Hofstad"
+                  "Kristine Hein")
+  :framework 'pygame
+  :downloads '((:zip "http://folk.uio.no/simenheg/lofsongur.zip"))
+  :screenshot "lofsongur.png")
+
+(defentry 'oct-14
+  :team-name "Fluffy Bunny"
+  :game-title "Hamster Simulator"
+  :team-members '("Kristoffer Gudmundsen"
+                  "Gosia Kokoszka")
+  :framework 'unity
+  :downloads '((:exe "https://www.dropbox.com/sh/f7yac4mtur69o6p/AABXKXLa_RfQQayzSqlg6YG9a/Hamster_Simulator.exe?dl=1"))
+  :screenshot "hamster-simulator.png")
+
+(defentry 'oct-14
+  :team-name "Team Walkover"
+  :game-title "LIMIT Release"
+  :team-members '("Terje Kirstihagen"
+                  "Trym Horgen")
+  :framework 'gamemaker
+  :downloads '((:exe "http://folk.uio.no/simenheg/limit-release.1.01.exe")
+               (:gamemaker "http://folk.uio.no/simenheg/limit-release.1.01.gmk"))
+  :rank 2
+  :screenshot "limit-release.png")
+
+(defentry 'oct-14
+  :team-name "UNITY"
+  :game-title "Orange Blob"
+  :team-members '("Persijn Kwekkeboom")
+  :framework 'unity
+  :downloads '((:zip "http://folk.uio.no/simenheg/orange-blob.zip"))
+  :screenshot "orange-blob.png")
+
+(defentry 'oct-14
+  :team-name "Wafflewings"
+  :game-title "Flash Fever"
+  :team-members '("Karl Magnus Kalvik"
+                  "Bård-Kristian Krohg")
+  :framework 'libgdx
+  :downloads '((:jar "http://folk.uio.no/simenheg/FlashFever.jar")
+               (:github "https://github.com/karlma91/GameJamLimit"))
+  :screenshot "flash-fever.png")
+
+(defentry 'oct-14
+  :team-name "Ole Herman Schumacher Elgesem"
+  :game-title "Unfinished space game prototype with long name"
+  :team-members '("Ole Herman Schumacher Elgesem")
+  :framework 'sdl
+  :downloads '((:zip "http://folk.uio.no/simenheg/unfinished-space-game.zip"))
+  :screenshot "unfinished-space-game.png")
+
+;; TODO: Missing games
+;;  * Team AwesomePants Flight School by Team AwesomePants
+;;  * RGB-Run by High Risk
