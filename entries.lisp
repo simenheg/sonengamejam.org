@@ -577,11 +577,10 @@
 (defentry 'oct-14
   :team-name "Team Blox"
   :game-title "Airs up"
-  ;; TODO: Get full team-member names
-  :team-members '("Endre"
+  :team-members '("Endre Svensen"
                   "Jarle Sandnes"
                   "Lise T. Nilsen"
-                  "Gunnar")
+                  "Gunnar Holst")
   :framework 'unity
   :downloads '((:github "https://github.com/Sanjar14/GameJam2")
                (:zip "https://github.com/Sanjar14/GameJam2/archive/master.zip"))
@@ -598,10 +597,12 @@
 (defentry 'oct-14
   :team-name "Roger.dat"
   :game-title "Sugar Shock: Limited Edition"
-  ;; TODO: Verify team/get rest of team
   :team-members '("Morten Hillbom"
                   "Joakim Lier"
-                  "Bendik Østrem Svalastog")
+                  "Bendik Østrem Svalastog"
+                  "Emily Lo"
+                  "Karl Hole Totland"
+                  "Steinar Pedersen")
   :framework 'love
   :downloads '((:love "http://folk.uio.no/simenheg/SugarShock.love")
                (:zip "http://folk.uio.no/simenheg/SugarShock.zip"))
@@ -673,6 +674,22 @@
   :downloads '((:zip "http://folk.uio.no/simenheg/unfinished-space-game.zip"))
   :screenshot "unfinished-space-game.png")
 
-;; TODO: Missing games
-;;  * Team AwesomePants Flight School by Team AwesomePants
-;;  * RGB-Run by High Risk
+(defentry 'oct-14
+  :team-name "Team AwesomePants"
+  :game-title "AwesomePants Flightschool"
+  :team-members '("Nikolas Papaioannou"
+                  "Vegard Knutsen Lillevoll"
+                  "Eskil Opdahl Nordland")
+  :framework 'pygame
+  :downloads '((:zip "http://folk.uio.no/simenheg/awesomepantsflightschool.zip"))
+  :screenshot "flightschool.png")
+
+(defentry 'oct-14
+  :team-name "High Risk"
+  :game-title "RGB-run"
+  :team-members '("Odd Gunnar Fatland"
+                  "Eivind Furuberg"
+                  "Lukas Wijgart")
+  :framework 'unity
+  :downloads '((:zip "http://virvel.de/rgb.zip"))
+  :screenshot "rgb-run.png")
