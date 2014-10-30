@@ -138,7 +138,8 @@
   (with-html
 					;
    (:h1 "THEME")
-    (:h3 "The theme was LIMIT.")
+    (:h3 "The gamejam is over!")
+    (:h4 "The theme was LIMIT.")
     (:p "The page with the resources to talks held so far can be found " (:a :href "http://sonengamejam.org/talks/" "here."))
    (:h1 "About")
     (:p
