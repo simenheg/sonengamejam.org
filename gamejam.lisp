@@ -137,6 +137,9 @@
 (defun html-render-body-index ()
   (with-html
 					;
+   (:h1 "THEME")
+    (:h3 "The theme is LIMIT.")
+    (:p "The page with the resources to talks held so far can be found " (:a :href "http://sonengamejam.org/talks/" "here."))
    (:h1 "About")
     (:p
      "Make a game in 48 hours! Listen to great talks! Eat pizza! The purpose of Sonen Game Jam is to gather
