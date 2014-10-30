@@ -41,7 +41,7 @@
 ;; ----------------------------------------------------- [ Download formats ]
 (defun format-precedence (format)
   (position format '(:play :love :jar :exe :blender :gamemaker :pdf :github
-                     :bitbucket :zip)))
+                     :bitbucket :zip :dmg)))
 
 (defun format< (f1 f2)
   (< (format-precedence f1) (format-precedence f2)))
@@ -59,7 +59,9 @@
      (:blender "blender.png")
      (:pdf "pdf.png")
      (:exe "exe.png")
-     (:gamemaker "gamemaker.png"))))
+     (:gamemaker "gamemaker.png")
+     (:dmg "dmg.png"))))
+; NOTE: also add new formats to the format-precedence sequence!
 
 ;; -------------------------------------------------------------- [ Entries ]
 (defstruct entry
@@ -482,7 +484,7 @@
 ;; October 2014
 
 (defentry 'oct-14
-  :team-name "asdfasdf"
+  :team-name "asdfasdf (this game did not compete)"
   :game-title "Bus driver"
   :team-members '("Julian Nymark")
   :framework 'love
@@ -614,7 +616,8 @@
   :team-members '("Jens Bache-Wiig"
                   "Lars Moen")
   :framework 'qt
-  :downloads '((:zip "http://folk.uio.no/simenheg/pixelhipster.zip"))
+  :downloads '((:zip "http://folk.uio.no/simenheg/pixelhipster.zip")
+	       (:dmg "http://virvel.de/pixelhipster.dmg"))
   :rank 1
   :screenshot "pixelhipster.png")
 
@@ -634,7 +637,8 @@
   :team-members '("Kristoffer Gudmundsen"
                   "Gosia Kokoszka")
   :framework 'unity
-  :downloads '((:exe "https://www.dropbox.com/sh/f7yac4mtur69o6p/AABXKXLa_RfQQayzSqlg6YG9a/Hamster_Simulator.exe?dl=1"))
+  :downloads '((:exe "https://www.dropbox.com/sh/f7yac4mtur69o6p/AABXKXLa_RfQQayzSqlg6YG9a/Hamster_Simulator.exe?dl=1")
+	       (:zip "http://virvel.de/hamster-simulator.zip"))
   :screenshot "hamster-simulator.png")
 
 (defentry 'oct-14

@@ -138,7 +138,7 @@
   (with-html
 					;
    (:h1 "THEME")
-    (:h3 "The theme is LIMIT.")
+    (:h3 "The theme was LIMIT.")
     (:p "The page with the resources to talks held so far can be found " (:a :href "http://sonengamejam.org/talks/" "here."))
    (:h1 "About")
     (:p
@@ -164,11 +164,14 @@
      "Guest accounts can be provided for those of you who aren't associated
      with UiO, allowing you to use the machines at Ole-Johan Dahls hus
      during the event.")
-    (:p "If you need access to the building during the event, please
-    call one of us:")
-    (:ul
-     ;(:li "Simen (96 82 24 48)")
-     (:li "Jonny (45 88 50 35)"))
+    
+    ;; (:p "If you need access to the building during the event, please
+    ;; call one of us:")
+    ;; (:ul
+    ;;  ; TODO
+    ;;  ;(:li "Simen (96 82 24 48)")
+    ;; (:li "Jonny (45 88 50 35)"))
+
     (:h3 "Rules")
     (:ul
      (:li "One game submission per team.")
