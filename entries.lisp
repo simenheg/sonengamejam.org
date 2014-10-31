@@ -593,7 +593,8 @@
   :game-title "Jump the wall!"
   :team-members '("Terje Ballestad")
   :framework 'gamemaker
-  :downloads '((:gamemaker "http://folk.uio.no/simenheg/jump-the-wall.gmx"))
+  :downloads '((:gamemaker "http://folk.uio.no/simenheg/jump-the-wall.gmx")
+	       (:zip "http://virvel.de/jump-the-wall.zip"))
   :screenshot "jump-the-wall.png")
 
 (defentry 'oct-14
@@ -637,7 +638,7 @@
   :team-members '("Kristoffer Gudmundsen"
                   "Gosia Kokoszka")
   :framework 'unity
-  :downloads '((:exe "https://www.dropbox.com/sh/f7yac4mtur69o6p/AABXKXLa_RfQQayzSqlg6YG9a/Hamster_Simulator.exe?dl=1")
+  :downloads '(;(:exe "https://www.dropbox.com/sh/f7yac4mtur69o6p/AABXKXLa_RfQQayzSqlg6YG9a/Hamster_Simulator.exe?dl=1")
 	       (:zip "http://virvel.de/hamster-simulator.zip"))
   :screenshot "hamster-simulator.png")
 
