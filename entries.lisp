@@ -649,7 +649,9 @@
                   "Trym Horgen")
   :framework 'gamemaker
   :downloads '((:exe "http://folk.uio.no/simenheg/limit-release.1.01.exe")
-               (:gamemaker "http://folk.uio.no/simenheg/limit-release.1.01.gmk"))
+               (:gamemaker "http://folk.uio.no/simenheg/limit-release.1.01.gmk")
+	       (:gamemaker "http://virvel.de/limit-release.gb1")
+	       )
   :rank 2
   :screenshot "limit-release.png")
 
@@ -676,7 +678,10 @@
   :game-title "Unfinished space game prototype with long name"
   :team-members '("Ole Herman Schumacher Elgesem")
   :framework 'sdl
-  :downloads '((:zip "http://folk.uio.no/simenheg/unfinished-space-game.zip"))
+  :downloads '(
+	       (:zip "http://virvel.de/unfinished-space-game-prototype.zip")
+	       (:github "https://github.com/olehermanse/SGP")
+	       )
   :screenshot "unfinished-space-game.png")
 
 (defentry 'oct-14
