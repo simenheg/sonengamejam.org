@@ -83,7 +83,7 @@
   (with-html
     (:table
      :id "timetable"
-     (:p "Details may be subject to change.")
+     (:p "<strong>Timetable not yet finalized.</strong><br> Calendar below is from last year, to give you a general idea.")
      (loop for (day . schedule) in timetable do
        (htm (:th :colspan "2" (:strong (princ day))))
        (loop for (time event) in schedule do
@@ -137,18 +137,16 @@
 (defun html-render-body-index ()
   (with-html
 					;
-   (:h1 "THEME")
-    (:h3 "The gamejam is over!")
-    (:h4 "The theme was LIMIT.")
-    (:p "The page with the resources to talks held so far can be found " (:a :href "http://sonengamejam.org/talks/" "here."))
+;   (:h1 "THEME")
+;    (:p "The page with the resources to talks held so far can be found " (:a :href "http://sonengamejam.org/talks/" "here."))
    (:h1 "About")
     (:p
      "Make a game in 48 hours! Listen to great talks! Eat pizza! The purpose of Sonen Game Jam is to gather
        aspiring game makers, rookies and veterans alike. Everyone is eligible
        to enter, and the entry (as well as food) is free. No prior registration is needed, all
-       you have to do is to show up at Sonen (3rd floor, room 3407), Ole-Johan Dahls hus, <strong>Oct 24th!</strong>") ; DATE
+       you have to do is to show up at Sonen (3rd floor, room 3407), Ole-Johan Dahls hus, <strong>April 10th!</strong>") ; DATE
     (:h3 "Date")
-    (:p "The weekend on the <strong>24th-26th of October</strong> (week 43), from 17:00 on Friday (theme announcement) to 17:00 on Sunday (deadline)") ; DATE
+    (:p "The weekend on the <strong>10th - 12th of April</strong> (week 15), from 17:00 on Friday (theme announcement) to 17:00 on Sunday (deadline)") ; DATE
     (:h3 "Livestream")
     (:p
      "Check out our livestream at"
@@ -156,7 +154,7 @@
     (:h3 "Venue")
     (:p
      "Sonen Game Jam will take place at room <strong>Ada 3407</strong>, also known as
-  Sonen, located on the <strong>third floor of Ole-Johan Dahls hus</strong>, close to Forskningsparken station. " (:a :href "http://www.openstreetmap.org/way/35201513#map=17/59.94351/10.71872" "(map)"))
+  <strong>Sonen</strong>, located on the <strong>third floor of Ole-Johan Dahls hus</strong>, close to Forskningsparken station. " (:a :href "http://www.openstreetmap.org/way/35201513#map=17/59.94351/10.71872" "(map)"))
     (:p
      "If you already have a UiO student card, and need extended access to
      Ole-Johan Dahls hus during the weekend, please send us your full name
@@ -166,12 +164,11 @@
      with UiO, allowing you to use the machines at Ole-Johan Dahls hus
      during the event.")
     
-    ;; (:p "If you need access to the building during the event, please
-    ;; call one of us:")
-    ;; (:ul
-    ;;  ; TODO
-    ;;  ;(:li "Simen (96 82 24 48)")
-    ;; (:li "Jonny (45 88 50 35)"))
+    (:p "If you need access to the building during the event, please call one of us:")
+    (:ul
+     ;(:li "Simen (96 82 24 48)")
+     (:li "Srod (99 42 48 22)")
+     (:li "Jonny (45 88 50 35)"))
 
     (:h3 "Rules")
     (:ul
@@ -181,14 +178,14 @@
      (:li "Game must conform with the given theme.")
      (:li "All programming languages allowed.")
      (:li "All publicly available frameworks, libraries & assets allowed.")
-     (:li "Source code and a screen shot must be included in the final delivery."))
+     (:li "Source code and a screenshot must be included in the final delivery."))
     (:h3 "Matchmaking")
     (:p
      "Still missing that special someone on your team that can make you
        feel all warm and fuzzy inside (or at least turn your pixel-poop into
        something you might dare to call \"art\" when nobody is listening?).")
     (:p
-     "Show up at 14:00 on Friday the 24th, or chip an email to "
+     "Show up at 14:00 on Friday the 10th, or chip an email to "
 ;     (:a :href "mailto:simenheg@ifi.uio.no" "simenheg@ifi.uio.no")
 ;     "or"
      (:a :href "mailto:jwringstad@gmail.com" "jwringstad@gmail.com"))
@@ -291,6 +288,7 @@
 
 (defun html-render-body-prizes ()
   (with-html
+   (:p "<strong>Prizes not yet finalized!</strong>")
     (:table
      :id "prizes"
      (loop for (category . prizes) in *prizes* do
